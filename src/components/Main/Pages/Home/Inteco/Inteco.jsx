@@ -1,10 +1,11 @@
 import './Inteco.scss';
 import Container from '../../../Container/Container';
+import Inteco from '@/assets/Inteco/Inteco.png';
 
 function IntecoDiv () {
     return (
             <Container>
-                <section className='IntecoDiv'>
+                <section className='IntecoDiv' style={{ backgroundImage: `url(${Inteco})` }}>
                 <div className='left'>
                     <h1>Девелопер ИНТЕКО</h1>
                     <p>Реализует лучшие проекты в сфере недвижимости на основе анализа<br /> и прогноза предпочтений человека</p>
