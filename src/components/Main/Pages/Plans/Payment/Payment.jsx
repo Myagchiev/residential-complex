@@ -2,8 +2,8 @@ import './Payment.scss';
 import Container from '../../../Container/Container';
 import Button from '../../../Button/Button';
 import Modal from '../../../Modals/Modal';
-import sber from '../../../../../assets/test/sber.png';
-import percent from '../../../../../assets/test/percent.png';
+import sber from '@/assets/test/sber.png';
+import percent from '@/assets/test/percent.png';
 import { useState } from 'react';
 
 function Payment() {

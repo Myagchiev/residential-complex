@@ -1,8 +1,8 @@
 import './Present.scss';
-import Alena from '../../../../../assets/presentation/Alena.png';
+import Alena from '@/assets/presentation/Alena.png';
 import Button from '../../../Button/Button';
 import Container from '../../../Container/Container';
-import Arrow from '../../../../../assets/presentation/arrow.svg';
+import Arrow from '@/assets/presentation/arrow.svg';
 import { IMaskInput } from 'react-imask';
 import { useState } from 'react';
 import Modal from '../../../Modals/Modal';

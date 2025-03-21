@@ -2,10 +2,10 @@ import './Apartments.scss';
 import PhotoCard from '../../../PhotoCard/PhotoCard';
 import Container from '../../../Container/Container';
 import Modal from '../../../Modals/Modal';
-import Apart from '../../../../../assets/apartments/apart.png';
-import Apart1 from '../../../../../assets/apartments/apart1.png';
-import Apart2 from '../../../../../assets/apartments/apart2.png';
-import Apart3 from '../../../../../assets/apartments/apart3.png';
+import Apart from '@/assets/apartments/apart.png';
+import Apart1 from '@/assets/apartments/apart1.png';
+import Apart2 from '@/assets/apartments/apart2.png';
+import Apart3 from '@/assets/apartments/apart3.png';
 import { useState } from 'react';
 
 function Apartments() {

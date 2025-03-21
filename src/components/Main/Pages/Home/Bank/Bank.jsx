@@ -1,5 +1,5 @@
 import './Bank.scss';
-import bankLogos from '../../../../../assets/Inteco/bankLogos.png';
+import bankLogos from '@/assets/Inteco/bankLogos.png';
 import Container from '../../../Container/Container';
 
 function Bank () {

@@ -1,17 +1,17 @@
 import './Variants.scss';
 import Container from '../../../Container/Container';
-import Lightone from '../../../../../assets/buklet/Light_1.png';
-import Lighttwo from '../../../../../assets/buklet/Light_2.png';
-import Lightthree from '../../../../../assets/buklet/Light_3.png';
-import Group from '../../../../../assets/buklet/Group.png';
+import Lightone from '@/assets/buklet/Light_1.png';
+import Lighttwo from '@/assets/buklet/Light_2.png';
+import Lightthree from '@/assets/buklet/Light_3.png';
+import Group from '@/assets/buklet/Group.png';
 import Button from '../../../Button/Button'
-import Darkone from '../../../../../assets/buklet/Dark_1.png';
-import Darktwo from '../../../../../assets/buklet/Dark_2.png';
-import Darkthree from '../../../../../assets/buklet/Dark_3.png';
-import DarkGroup from '../../../../../assets/buklet/darkGroup.png';
-import WhiteBook from '../../../../../assets/modals/whiteBook.png';
-import DarkBook from '../../../../../assets/modals/darkBook.png';
-import Line from '../../../../../assets/presentation/bgLine.png';
+import Darkone from '@/assets/buklet/Dark_1.png';
+import Darktwo from '@/assets/buklet/Dark_2.png';
+import Darkthree from '@/assets/buklet/Dark_3.png';
+import DarkGroup from '@/assets/buklet/darkGroup.png';
+import WhiteBook from '@/assets/modals/whiteBook.png';
+import DarkBook from '@/assets/modals/darkBook.png';
+import Line from '@/assets/presentation/bgLine.png';
 import { useState } from 'react';
 import Modal from '../../../Modals/Modal';
 

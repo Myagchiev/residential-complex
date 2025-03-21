@@ -1,8 +1,8 @@
 import Container from '../Main/Container/Container';
 import './Footer.scss';
-import FooterLogo from '../../assets/landing/footerLogo.svg';
-import Logo2 from '../../assets/landing/logo2.svg';
-import logo3 from '../../assets/landing/experts.svg';
+import FooterLogo from '@/assets/landing/footerLogo.svg';
+import Logo2 from '@/assets/landing/logo2.svg';
+import logo3 from '@/assets/landing/experts.svg';
 
 function Footer() {
   return (

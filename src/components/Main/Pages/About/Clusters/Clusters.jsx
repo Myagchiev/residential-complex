@@ -3,30 +3,30 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Container from '../../../Container/Container';
 import Button from '../../../Button/Button';
-import LogoBlue from '../../../../../assets/clusters/blueslide/LogoBlue.svg';
-import LogoGreen from '../../../../../assets/clusters/greenslide/LogoGreen.svg';
-import slide from '../../../../../assets/clusters/blueslide/slide.png';
-import slide2 from '../../../../../assets/clusters/blueslide/slide2.png';
-import slide3 from '../../../../../assets/clusters/blueslide/slide3.png';
-import slide4 from '../../../../../assets/clusters/blueslide/slide4.png';
-import slide5 from '../../../../../assets/clusters/blueslide/slide5.png';
-import slide6 from '../../../../../assets/clusters/blueslide/slide6.png';
-import slide7 from '../../../../../assets/clusters/blueslide/slide7.png';
-import slide8 from '../../../../../assets/clusters/blueslide/slide8.png';
-import slide9 from '../../../../../assets/clusters/blueslide/slide9.png';
-import slide10 from '../../../../../assets/clusters/blueslide/slide10.png';
-import gslide from '../../../../../assets/clusters/greenslide/gslide.png';
-import gslide2 from '../../../../../assets/clusters/greenslide/gslide2.png';
-import gslide3 from '../../../../../assets/clusters/greenslide/gslide3.png';
-import gslide4 from '../../../../../assets/clusters/greenslide/gslide4.png';
-import gslide5 from '../../../../../assets/clusters/greenslide/gslide5.png';
-import gslide6 from '../../../../../assets/clusters/greenslide/gslide6.png';
-import gslide7 from '../../../../../assets/clusters/greenslide/gslide7.png';
+import LogoBlue from '@/assets/clusters/blueslide/LogoBlue.svg';
+import LogoGreen from '@/assets/clusters/greenslide/LogoGreen.svg';
+import slide from '@/assets/clusters/blueslide/slide.png';
+import slide2 from '@/assets/clusters/blueslide/slide2.png';
+import slide3 from '@/assets/clusters/blueslide/slide3.png';
+import slide4 from '@/assets/clusters/blueslide/slide4.png';
+import slide5 from '@/assets/clusters/blueslide/slide5.png';
+import slide6 from '@/assets/clusters/blueslide/slide6.png';
+import slide7 from '@/assets/clusters/blueslide/slide7.png';
+import slide8 from '@/assets/clusters/blueslide/slide8.png';
+import slide9 from '@/assets/clusters/blueslide/slide9.png';
+import slide10 from '@/assets/clusters/blueslide/slide10.png';
+import gslide from '@/assets/clusters/greenslide/gslide.png';
+import gslide2 from '@/assets/clusters/greenslide/gslide2.png';
+import gslide3 from '@/assets/clusters/greenslide/gslide3.png';
+import gslide4 from '@/assets/clusters/greenslide/gslide4.png';
+import gslide5 from '@/assets/clusters/greenslide/gslide5.png';
+import gslide6 from '@/assets/clusters/greenslide/gslide6.png';
+import gslide7 from '@/assets/clusters/greenslide/gslide7.png';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Modal from '../../../Modals/Modal';
-import BlueBook from '../../../../../assets/modals/blueBook.png';
-import GreenBook from '../../../../../assets/modals/greenBook.png'; // Предполагаю, что есть такое изображение
-import Line from '../../../../../assets/presentation/bgLine.png';
+import BlueBook from '@/assets/modals/blueBook.png';
+import GreenBook from '@/assets/modals/greenBook.png'; // Предполагаю, что есть такое изображение
+import Line from '@/assets/presentation/bgLine.png';
 
 function Clusters() {
   const blueClusterData = [

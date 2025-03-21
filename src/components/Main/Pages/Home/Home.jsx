@@ -1,5 +1,4 @@
 import './Home.scss';
-import Container from '../../Container/Container';
 import Greeting from './Greeting/Greeting';
 import Parent from './Parent/Parent';
 import Location from './Location/Location';
@@ -10,12 +9,10 @@ import Bank from './Bank/Bank';
 function Home() {
   return (
     <div className="home">
-      <Greeting /> {/* Без Container, полный экран */}
-      <Container>
-        <Parent />
-        <Location />
-      </Container>
-      <View /> {/* Без Container, панорамные фото */}
+      <Greeting />
+      <Parent />
+      <Location />
+      <View /> 
       <IntecoDiv />
       <Bank />
     </div>

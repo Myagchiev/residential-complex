@@ -1,9 +1,10 @@
 import './Parent.scss';
 import PhotoCard from '../../../PhotoCard/PhotoCard';
-import photo1 from '../../../../../assets/grid/20.png';
-import photo2 from '../../../../../assets/grid/15.png';
-import photo3 from '../../../../../assets/grid/7.png';
-import photo4 from '../../../../../assets/grid/2.png';
+import photo1 from '@/assets/grid/20.png';
+import photo2 from '@/assets/grid/15.png';
+import photo3 from '@/assets/grid/7.png';
+import photo4 from '@/assets/grid/2.png';
+import Container from '../../../Container/Container'
 
 function Parent() {
   const photoData = [
@@ -14,7 +15,9 @@ function Parent() {
   ];
 
   return (
-    <div className="parent">
+    <Container>
+      <section>
+      <div className="parent">
       {photoData.map((item, index) => (
         <PhotoCard
           key={index}
@@ -25,6 +28,8 @@ function Parent() {
         />
       ))}
     </div>
+    </section>
+    </Container>
   );
 }
 

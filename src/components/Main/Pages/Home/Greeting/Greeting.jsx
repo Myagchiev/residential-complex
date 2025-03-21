@@ -1,7 +1,7 @@
 import './Greeting.scss';
-import Logo2 from '../../../../../assets/landing/logo2.svg';
-import mainLand from '../../../../../assets/landing/main-landing.png';
-import award from '../../../../../assets/landing/award.svg';
+import Logo2 from '@/assets/landing/logo2.svg';
+import mainLand from '@/assets/landing/main-landing.png';
+import award from '@/assets/landing/award.svg';
 
 function Greeting() {
   return (

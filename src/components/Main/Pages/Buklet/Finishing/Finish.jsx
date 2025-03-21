@@ -1,9 +1,9 @@
 import './Finish.scss';
 import PhotoCard from '../../../PhotoCard/PhotoCard';
 import Container from '../../../Container/Container';
-import cardone from '../../../../../assets/buklet/first.png';
-import cardtwo from '../../../../../assets/buklet/second.png';
-import cardthree from '../../../../../assets/buklet/third.png';
+import cardone from '@/assets/buklet/first.png';
+import cardtwo from '@/assets/buklet/second.png';
+import cardthree from '@/assets/buklet/third.png';
 
 function Finish() {
     return (

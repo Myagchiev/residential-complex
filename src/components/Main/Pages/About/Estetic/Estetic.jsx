@@ -1,11 +1,11 @@
 import './Estetic.scss';
-import Estetic from '../../../../../assets/estetic/estetic.png';
-import Estetic2 from '../../../../../assets/estetic/estetic2.png';
-import Estetic3 from '../../../../../assets/estetic/estetic3.png';
-import Estetic4 from '../../../../../assets/estetic/estetic4.png';
-import Icon from '../../../../../assets/estetic/Icon.svg';
-import Icon2 from '../../../../../assets/estetic/Icon2.svg';
-import Star from '../../../../../assets/estetic/Star.svg';
+import Estetic from '@/assets/estetic/estetic.png';
+import Estetic2 from '@/assets/estetic/estetic2.png';
+import Estetic3 from '@/assets/estetic/estetic3.png';
+import Estetic4 from '@/assets/estetic/estetic4.png';
+import Icon from '@/assets/estetic/Icon.svg';
+import Icon2 from '@/assets/estetic/Icon2.svg';
+import Star from '@/assets/estetic/Star.svg';
 import Container from '../../../Container/Container';
 
 function Estet () {

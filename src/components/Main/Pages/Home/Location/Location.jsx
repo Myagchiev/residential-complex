@@ -1,10 +1,12 @@
 import './Location.scss';
-import Map from '../../../../../assets/location/Map.png';
-import P360 from '../../../../../assets/location/P360.svg';
+import Map from '@/assets/location/Map.png';
+import P360 from '@/assets/location/P360.svg';
+import Container from '../../../Container/Container';
 
 function Location() {
   return (
-    <section className="location">
+    <Container>
+      <section className="location">
       <div className="string">
         <hr />
         <p>престижное расположение</p>
@@ -19,6 +21,7 @@ function Location() {
         </div>
       </div>
     </section>
+    </Container>
   );
 }
 
