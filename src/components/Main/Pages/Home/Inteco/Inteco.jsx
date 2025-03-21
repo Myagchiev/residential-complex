@@ -1,6 +1,5 @@
 import './Inteco.scss';
 import Container from '../../../Container/Container';
-import IntecoImg from '../../../../../assets/Inteco/Inteco.png'
 
 function IntecoDiv () {
     return (
