@@ -1,0 +1,84 @@
+@import '../../../../../styles/variables.scss';
+
+.location {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .string {
+    position: relative;
+    padding-top: 30px;
+
+    hr {
+      width: 1100px;
+      height: 1px;
+      margin-left: 10px;
+      border: none;
+      background-color: $color-line-primary;
+    }
+
+    p {
+      position: absolute;
+      left: 36%;
+      top: 20px;
+      padding: 0 10px;
+      background-color: $color-main-white;
+      font-family: "TT Travels", sans-serif;
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: 2px;
+    }
+  }
+
+  h2 {
+    margin: 34px 0;
+    font-family: "TT Travels", sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 100%;
+    letter-spacing: -3px;
+
+    hr {
+      width: 200px;
+      height: 2px;
+      margin-left: 455px;
+      border: none;
+      background-color: $color-brand-green;
+    }
+  }
+
+  .garden {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-top: 15px;
+
+    p {
+      width: 550px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .panorama {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      width: 300px;
+      padding: 8px 0px;
+      border: solid 1px $color-line-primary;
+      border-radius: 5px;
+
+      p {
+        width: auto;
+        color: $color-brand-brown;
+        font-weight: 600;
+      }
+    }
+  }
+}

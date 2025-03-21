@@ -1,0 +1,172 @@
+@import '../../../../../styles/variables.scss';
+
+.presentation {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px 0 60px;
+  border-radius: 12px;
+  position: relative;
+  background-image: url('../../../../../assets/presentation/bgLine.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  margin: -50px -30px 50px;
+
+  .right {
+    position: relative;
+
+    .person {
+      color: #ffffff;
+      width: 140px;
+      position: absolute;
+      top: 370px;
+      left: 45px;
+
+      h6 {
+        font-family: "TT Travels", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: -1px;
+      }
+
+      p {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+        opacity: 80%;
+      }
+    }
+  }
+
+  .left {
+    p:first-child {
+      text-align: center;
+      font-family: "TT Travels", sans-serif;
+      color: $color-brand-brown;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 12%;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-family: "TT Travels", sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 100%;
+      margin: 0 52px 12px 0;
+    }
+
+    p {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 26px;
+      letter-spacing: -1%;
+      margin-bottom: 12px;
+    }
+  }
+
+  .phone {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    p:nth-child(2) {
+      font-weight: 500;
+      font-size: 16px;
+      color: black;
+      margin-top: 8px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 120%;
+      color: $color-text-grey;
+    }
+
+    input {
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background-color: #F5F3F0;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      color: $color-text-primary;
+      width: 250px;
+      margin: 12px 12px 12px 0;
+    }
+    
+
+    input::placeholder {
+      color: $color-text-primary;
+      opacity: 0.5;
+    }
+
+    .policy {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Стили для ошибки */
+    .error {
+      position: absolute;
+      top: 58px; // Специфично для Presentation
+      left: 0;
+      color: #ff0000;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 14px;
+      margin-top: 4px;
+      z-index: 1;
+    }
+
+    > div {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .long {
+    width: 600px;
+    border: none;
+    height: 1px;
+    background-color: $color-line-primary;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: $color-line-primary;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

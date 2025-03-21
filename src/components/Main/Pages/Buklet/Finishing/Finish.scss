@@ -1,0 +1,41 @@
+@import '../../../../../styles//variables.scss';
+
+.finish {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    
+
+    .maintitle {
+        text-align: center;
+        h1 {
+            font-family: "Helvetica Neue", sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: -2px;
+            margin: 0 0 20px 0;
+        }
+    
+        p {
+            font-family: "Helvetica Neue", sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 100%;
+        }
+
+        hr {
+            border: none;
+            background-color: $color-line-dark;
+            height: 3px;
+            width:800px;
+            margin: 0 0 30px 190px;
+         }
+    }
+   
+
+    .cards {
+        display: flex;
+        gap: 20px;
+    }
+}

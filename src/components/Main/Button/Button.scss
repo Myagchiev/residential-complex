@@ -1,0 +1,34 @@
+@import '../../../styles/variables.scss';
+
+.custom-button {
+  padding: 14px 24px; // Фиксированный отступ
+  border: none; // Убираем стандартную обводку
+  border-radius: 12px; // Скругление углов (можно изменить)
+  font-family: "TT Travels", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block; // Подстраивается под текст
+  transition: background-color 0.3s ease; // Плавный переход цвета
+
+  &.white {
+    background-color: #ffffff; // Белый фон
+    color: $color-text-primary; // Цвет текста (можешь подставить свой)
+    border: 1px solid $color-line-primary; // Обводка для контраста
+  }
+
+  &.brown {
+    background-color: $color-brand-brown; // Коричневый фон
+    color: #ffffff; // Белый текст для контраста
+  }
+
+  &.black {
+    background-color: $color-text-primary; // Коричневый фон
+    color: #ffffff; // Белый текст для контраста
+  }
+
+  &:hover {
+    opacity: 0.9; // Лёгкое затемнение при наведении
+  }
+}

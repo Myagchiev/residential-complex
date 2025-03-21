@@ -1,0 +1,130 @@
+@import '../../../styles/variables.scss';
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.modal-left {
+  width: 45.7%;
+  position: relative;
+}
+
+.modal-background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.modal-foreground {
+  position: absolute;
+  bottom: 0px;
+  left: 14px;
+}
+
+.modal-right {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.modal-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 0 10px 160px;
+}
+
+.modal-right h6 {
+  font-family: 'TT Travels', sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+}
+
+.modal-right p {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  line-height: 30px;
+  margin: 15px 0 5px 0;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  > div {
+    position: relative; // Делаем контейнер для инпута и ошибки позиционированным
+  }
+
+  .error {
+    position: absolute; // Абсолютное позиционирование
+    top: 8px; // Размещаем над инпутом
+    left: 0;
+    color: #ff0000; // Явно красный цвет
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    margin-top: 4px; // Небольшой отступ от инпута
+    z-index: 1; // Чтобы не перекрывалось другими элементами
+  }
+}
+
+.modal-input {
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #F5F3F0; // Наследуем backgroundColor из style
+  color: #1a1a1a;
+  &::placeholder {
+    color: #646562;
+    opacity: 1;
+  }
+}
+
+.modal-form .policytext {
+  line-height: 14px;
+  text-align: center;
+}
+
+.modal-form .policy {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: $color-line-primary;
+  margin-bottom: -6px;
+  width: 100%
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

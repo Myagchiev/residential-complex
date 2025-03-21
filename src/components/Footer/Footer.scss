@@ -1,0 +1,92 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  background-color: #ffffff;
+  padding: 60px 0 155px; // Отступы сверху и снизу
+  position: relative; // Для правильного позиционирования фона
+  background-image: url('../../assets/landing/footerMap.png'); // Картинка как фон
+  background-repeat: no-repeat;
+  background-position: right bottom; // Привязываем к правому краю
+  background-size: auto 421px; // Высота картинки, ширина автоматическая
+  min-height: 421px; // Чтобы футер не сжимался меньше высоты картинки
+
+  .garden {
+    text-align: start;
+    display: flex;
+    gap: 200px;
+    margin-bottom: 20px; // Отступ перед hr
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: flex-start; // Офис слева, картинка как фон не влияет
+  }
+
+  .office {
+    text-align: start;
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; // Отступы между блоками внутри .office
+  }
+
+  .office-logos {
+    color: $color-line-primary;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 50px;
+  }
+
+  .office-address,
+  .office-phone  {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding-right: 80px;
+
+    p:first-child {
+      font-weight: 300;
+    }
+  }
+
+  .office-phone > div {
+    display: flex;
+    gap: 5px;
+    
+    p:first-child {
+      font-weight: 400;
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: $color-line-primary;
+    margin: 0;
+  }
+
+  h3 {
+    font-family: "TT Travels", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+
+  p {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -1%;
+  }
+
+  span {
+    color: $color-brand-green;
+    font-family: "TT Travels", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

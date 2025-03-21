@@ -1,0 +1,61 @@
+/* Подключение Helvetica Neue */
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/src/fonts/Helvetica/HelveticaNeueLight.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/src/fonts/Helvetica/HelveticaNeue-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/src/fonts/Helvetica/HelveticaNeue-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  /* Подключение TT Travels */
+  @font-face {
+    font-family: 'TT Travels';
+    src: url('/src/fonts/Travels/TT\ Travels\ Trial\ Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'TT Travels';
+    src: url('/src/fonts/Travels/TT\ Travels\ Trial\ DemiBold.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'TT Travels';
+    src: url('/src/fonts/Travels/TT\ Travels\ Trial\ Bold.otf') format('opentype'),;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
+// Цвета
+$color-main-white: #FAF8F5;
+$color-brand-green: #a0a747ff;
+$color-brand-brown: #773844ff;
+$color-brand-blue: #1f2057ff;
+$color-brand-blue-2: #465587ff;
+$color-brand-cyan: #77dfe9ff;
+$color-brand-beige: #d6d1b2ff;
+$color-brand-yellow: #d5b753ff;
+$color-brand-orange: #be6833ff;
+
+$color-text-primary: #1a1a1aff;
+$color-text-grey: #646562ff;
+
+$color-line-primary: #eae3d9ff;
+$color-line-dark: #c2bdb6ff;

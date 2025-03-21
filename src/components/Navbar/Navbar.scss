@@ -1,0 +1,142 @@
+@use 'sass:color';
+@import '../../styles/variables.scss';
+
+$menu-bg: #444;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Добавлена тень
+  z-index: 1000;
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-grey;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 18px;
+      line-height: 125%;
+      text-align: start;
+      font-weight: 300;
+    }
+  }
+
+  .navbar-menu-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-menu-btn {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: $color-text-primary;
+    font-family: "TT Travels", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-brand-green;
+
+      &::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $color-brand-green;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &-phone {
+    text-align: end;
+    line-height: 130%;
+
+    a {
+      color: $color-text-primary;
+      font-family: "TT Travels", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    hr {
+      opacity: 0.3;
+      margin: 0.2rem 0;
+    }
+
+    p {
+      margin: 0;
+      color: $color-brand-green;
+      font-family: "TT Travels", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $color-text-primary;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 999;
+
+    ul {
+      display: flex;
+      padding: 0.5rem 1rem;
+      margin: 0;
+    }
+
+    li {
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: color.adjust($menu-bg, $lightness: -10%);
+      }
+    }
+
+    a {
+      display: block;
+      color: white;
+      font-family: "TT Travels", sans-serif;
+      font-size: 1.1rem;
+    }
+  }
+}

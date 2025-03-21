@@ -1,0 +1,174 @@
+@import '../../../styles/variables.scss';
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+
+  &__image {
+    display: block;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: start;
+    padding: 0.8rem;
+    color: white;
+  }
+
+  &__title {
+    font-family: "TT Travels", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -2%;
+  }
+
+  &__description {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.2px;
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    background: $color-brand-green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "TT Travels", sans-serif;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($color-brand-green, 10%);
+    }
+  }
+
+  // Вариант для Parent (default)
+  &--default {
+    border-radius: 10px;
+
+    .photo-card__image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .photo-card__title {
+      width: 180px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem;
+      margin-bottom: 0.3rem;
+      border-radius: 10px;
+    }
+
+    .photo-card__description {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem 0.7rem;
+      border-radius: 10px;
+    }
+  }
+
+  // Вариант с картинкой справа
+  &--side-image {
+    width: 1180px;
+    height: 486px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px 20px 20px 50px;
+
+    .photo-card__image {
+      width: 550px;
+      height: 446px;
+      border-radius: 5px;
+    }
+
+    .photo-card__text-side {
+      flex: 1;
+      padding-right: 20px;
+      color: $color-text-primary;
+    }
+
+    .photo-card__title {
+      font-size: 36px;
+      line-height: 40px;
+      margin-bottom: -1px;
+    }
+
+    .photo-card__description {
+      margin-bottom: 20px;
+      line-height: 25px;
+      letter-spacing: -0.1px;
+      margin: 20px 0 120px 0;
+    }
+
+    .photo-card__link {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #0A3CE4;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      &:hover {
+        color: #052aaf;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  // Вариант с картинкой сверху
+  &--stacked {
+    width: 380px;
+    height: 470px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+
+    .photo-card__image {
+      width: 364px;
+      height: 222px;
+      border-radius: 8px;
+      margin: 8px auto 0;
+    }
+
+    .photo-card__content {
+      position: static;
+      padding: 26px;
+      color: $color-text-primary;
+      text-align: start;
+    }
+
+    .photo-card__title {
+      font-size: 28px;
+      line-height: 28px;
+      margin-bottom: 8px;
+    }
+
+    .photo-card__description {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
