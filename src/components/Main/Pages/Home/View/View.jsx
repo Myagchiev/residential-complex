@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './View.scss';
-import view1 from '../../../../../assets/views/poklon.jpg';
-import view2 from '../../../../../assets/views/moskva.jpg';
+import view1 from '../../../../../assets/views/poklon.jpeg';
+import view2 from '../../../../../assets/views/moskva.jpeg';
 import view3 from '../../../../../assets/views/matvey.jpg';
 import view4 from '../../../../../assets/views/ramen.jpeg';
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
@@ -15,7 +15,7 @@ function View() {
     { image: view4, title: "Район Раменки" },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === sliderData.length - 1 ? 0 : prev + 1));
@@ -27,6 +27,7 @@ function View() {
 
   return (
     <section className="view">
+      <h1>Наслаждайтесь видами <br />из окон своей квартиры</h1>
       <div className="slider">
         <button className="slider__arrow slider__arrow--left" onClick={prevSlide}>
           <GoArrowLeft />

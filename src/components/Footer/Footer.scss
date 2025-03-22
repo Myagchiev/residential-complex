@@ -1,12 +1,11 @@
 .footer {
   background-color: #ffffff;
-  padding: 60px 0 155px; // Отступы сверху и снизу
-  position: relative; // Для правильного позиционирования фона
-  background-image: url('@/assets/landing/footerMap.png'); // Картинка как фон
+  padding: 60px 0 155px;
+  position: relative;
+  background-image: url('@/assets/landing/footerMap.png');
   background-repeat: no-repeat;
-  background-position: right bottom; // Привязываем к правому краю
-  background-size: auto 421px; // Высота картинки, ширина автоматическая
-  min-height: 421px; // Чтобы футер не сжимался меньше высоты картинки
+  background-position: right bottom;
+  background-size: auto 421px;
 
   .garden {
     text-align: start;

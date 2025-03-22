@@ -40,14 +40,13 @@
 
   .left {
     p:first-child {
-      text-align: center;
       font-family: "TT Travels", sans-serif;
       color: $color-brand-brown;
       font-weight: 500;
       font-size: 16px;
       line-height: 100%;
-      letter-spacing: 12%;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      margin-left: 120px;
     }
 
     p:last-child {
@@ -55,11 +54,8 @@
     }
 
     h1 {
-      font-family: "TT Travels", sans-serif;
-      font-weight: 700;
       font-size: 48px;
-      line-height: 100%;
-      margin: 0 52px 12px 0;
+      margin: 16px 52px 24px 0;
     }
 
     p {
@@ -67,7 +63,6 @@
       font-size: 20px;
       font-weight: 300;
       line-height: 26px;
-      letter-spacing: -1%;
       margin-bottom: 12px;
     }
   }
@@ -80,8 +75,10 @@
     p:nth-child(2) {
       font-weight: 500;
       font-size: 16px;
+      line-height: 100%;
+      letter-spacing: -0.3px;
       color: black;
-      margin-top: 8px;
+      margin-top: 16px;
     }
 
     p {
@@ -145,6 +142,7 @@
     border: none;
     height: 1px;
     background-color: $color-line-primary;
+    margin-top: 28px;
   }
 }
 

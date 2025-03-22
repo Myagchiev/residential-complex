@@ -4,6 +4,7 @@ import Container from '../../../Container/Container';
 import cardone from '@/assets/buklet/first.png';
 import cardtwo from '@/assets/buklet/second.png';
 import cardthree from '@/assets/buklet/third.png';
+import Longline from "@/assets/lines/longline.svg"
 
 function Finish() {
     return (
@@ -12,6 +13,7 @@ function Finish() {
                 <div className='maintitle'>
                 <h1>Отделка от застройщика</h1>
                 <p>Экономьте на стоимости ремонта, покупая квартиру с готовой отделкой</p>
+                <img className='longline' src={Longline} alt="line" />
                 <hr />
                 </div>
                 <div className='cards'>

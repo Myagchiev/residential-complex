@@ -6,28 +6,29 @@
   text-align: center;
   background-color: $color-main-white;
 
-  h1 {
-    font-family: "TT Travels", sans-serif;
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 100%;
-    letter-spacing: -3px;
-    margin-bottom: 1rem;
-  }
 
-  p {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
-  }
+  .maintitle {
+    position: relative;
 
-  hr {
-    width: 630px;
-    height: 0.5px;
-    margin: 0 0 48px 79px;
-    border: none;
-    background-color: $color-brand-green;
+    h1 {
+      font-size: 64px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: -1%;
+      padding-bottom: 48px;
+    }
+
+    .mainline {
+      position: absolute;
+      top: 220px;
+      left: 140px;
+    }
   }
 
   .mainland {
@@ -38,18 +39,22 @@
   .award-div {
     position: absolute;
     top: -20px;
-    left: 1587px;
-    width: 193px;
+    left: 1577px;
+    width: 200px;
     height: 124px;
-    padding: 16px;
     background-color: white;
     border-radius: 5px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
     p {
       font-family: "TT Travels", sans-serif;
+      font-weight: 400;
       font-size: 16px;
-      line-height: 110%;
+      line-height: 120%;
       letter-spacing: -4%;
       color: $color-text-primary;
     }
@@ -61,15 +66,17 @@
     left: 40%;
     display: flex;
     gap: 20px;
+    font-family: "TT Travels", sans-serif;
+    line-height: 16px;
+    font-size: 16px;
+    letter-spacing: -2%;
 
     div {
-      padding: 2px 12px;
+      padding: 6px 12px;
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(16px);
       color: white;
       border-radius: 5px;
-      font-family: "TT Travels", sans-serif;
-      line-height: 16px;
 
       span {
         color: $color-brand-green;

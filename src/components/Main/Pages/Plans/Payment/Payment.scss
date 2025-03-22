@@ -18,14 +18,14 @@
         h2 {
             font-family: 'TT Travels', sans-serif;
             font-weight: 500;
-            font-size: 40px;
+            font-size: 48px;
             line-height: 100%;
           }
     
           h3 {
             font-family: 'TT Travels', sans-serif;
             font-weight: 500;
-            font-size: 26px;
+            font-size: 28px;
             line-height: 100%;
             margin: 20px 0;
           }
@@ -33,23 +33,23 @@
           p {
             font-family: 'TT Travels', sans-serif;
             font-weight: 300;
-            font-size: 20px;
-            line-height: 28px;
+            font-size: 22px;
+            line-height: 32px;
             letter-spacing: -1px;
-            margin-bottom: 50px;
+            margin: 30px 0 40px 0;
           }
     }
 
     .left {
         width: 700px;
-
-        hr {
-            border: none;
-            background-color: $color-line-dark;
-            width: 370px;
-            height: 3px;
-            margin: 0px 0 20px 0px;
-         }
+        position: relative;
+    }
+    
+    .middleline {
+      position: absolute;
+      width: 63%;
+      top: 65px;
+      left: 50px;
     }
 
     .right {
@@ -58,6 +58,15 @@
 
     .down {
         width: 700px;
+        position: relative;
+
+
+        .miniline {
+          position: absolute;
+          width: 25%;
+          top: 82px;
+          left: 50px;
+        }
 
         .downdiv {
             padding: 20px 0 20px 50px;

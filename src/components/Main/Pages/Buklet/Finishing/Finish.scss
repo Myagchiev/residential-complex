@@ -6,31 +6,22 @@
 
     .maintitle {
         text-align: center;
-        h1 {
-            font-family: "Helvetica Neue", sans-serif;
-            font-size: 56px;
-            font-weight: 700;
-            line-height: 100%;
-            letter-spacing: -2px;
-            margin: 0 0 20px 0;
-        }
+        position: relative;
     
         p {
             font-family: "Helvetica Neue", sans-serif;
             font-size: 24px;
+            line-height: 28px;
             font-weight: 300;
-            line-height: 100%;
+            margin: 10px 0 60px 0;
         }
-
-        hr {
-            border: none;
-            background-color: $color-line-dark;
-            height: 3px;
-            width:800px;
-            margin: 0 0 30px 190px;
-         }
     }
    
+    .longline {
+        position: absolute;
+        top: 95px;
+        left: 186px;
+    }
 
     .cards {
         display: flex;

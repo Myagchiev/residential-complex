@@ -25,7 +25,7 @@ import gslide7 from '@/assets/clusters/greenslide/gslide7.png';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Modal from '../../../Modals/Modal';
 import BlueBook from '@/assets/modals/blueBook.png';
-import GreenBook from '@/assets/modals/greenBook.png'; // Предполагаю, что есть такое изображение
+import GreenBook from '@/assets/modals/greenBook.png';
 import Line from '@/assets/presentation/bgLine.png';
 
 function Clusters() {
@@ -54,8 +54,8 @@ function Clusters() {
 
   const [currentBlueSlide, setCurrentBlueSlide] = useState(1);
   const [currentGreenSlide, setCurrentGreenSlide] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Одно состояние для модалки
-  const [activeCluster, setActiveCluster] = useState(null); // Какой кластер активирован ('blue' или 'green')
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeCluster, setActiveCluster] = useState(null);
 
   const nextSlideBlue = () => {
     setCurrentBlueSlide((prev) => (prev === blueClusterData.length - 1 ? 0 : prev + 1));
@@ -123,10 +123,10 @@ function Clusters() {
           <div className="slider-content">
             <div className="slider-text">
               <div className="subslider">
-                <h3>River Line</h3>
+                <h1>River Line</h1>
                 <img src={LogoBlue} alt="Логотип кластера 1" className="slider-logo" />
               </div>
-              <p>Восемь жилых корпусов по 12-14 этажей выстроены вдоль реки Раменки</p>
+              <p>Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки</p>
             </div>
             <Button text="Посмотреть планировки" color="white" onClick={() => openModal('blue')} />
           </div>
@@ -162,7 +162,7 @@ function Clusters() {
           <div className="slider-content">
             <div className="slider-text">
               <div className="subslider">
-                <h3>River Line</h3>
+                <h1>River Line</h1>
                 <img src={LogoGreen} alt="Логотип кластера 2" className="slider-logo" />
               </div>
               <p>Семь 14-этажных жилых корпусов, расположенных вдоль Матвеевского леса</p>

@@ -6,6 +6,8 @@ import Apart from '@/assets/apartments/apart.png';
 import Apart1 from '@/assets/apartments/apart1.png';
 import Apart2 from '@/assets/apartments/apart2.png';
 import Apart3 from '@/assets/apartments/apart3.png';
+import MiddleLine from '@/assets/lines/middleline.svg';
+import Miniline from '@/assets/lines/miniline.svg';
 import { useState } from 'react';
 
 function Apartments() {
@@ -30,12 +32,13 @@ function Apartments() {
   return (
     <Container>
       <section className="apartments">
-        <h1>Более 100 свободных квартир <br /> редких форматов</h1>
+        <h1>Более 100 свободных квартир <br /> редких форматов <img className='middleline' src={MiddleLine} alt="line" /></h1>
         <PhotoCard
           image={Apart}
           title={
             <>
               Свободная планировка, возможность объединить квартиры до 500 м²
+              <img className='miniline' src={Miniline} alt="line" />
             </>
           }
           description={

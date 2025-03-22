@@ -2,15 +2,16 @@ import './Greeting.scss';
 import Logo2 from '@/assets/landing/logo2.svg';
 import mainLand from '@/assets/landing/main-landing.png';
 import award from '@/assets/landing/award.svg';
+import mainLine from '@/assets/lines/line.svg';
 
 function Greeting() {
   return (
     <section className="greeting">
-      <div>
+      <div className='maintitle'>
         <img src={Logo2} alt="landinglogo" className="logotwo" />
         <h1>Жизнь в зеленом оазисе <br /> в статусном районе Москвы</h1>
         <p>Жилой комплекс бизнес-класса в 20 минутах от Кремля</p>
-        <hr />
+        <img src={mainLine} alt="line" className='mainline' />
       </div>
       <div className="mainland">
         <img src={mainLand} alt="mainPhoto" />

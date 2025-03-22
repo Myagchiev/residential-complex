@@ -5,6 +5,8 @@ import Modal from '../../../Modals/Modal';
 import sber from '@/assets/test/sber.png';
 import percent from '@/assets/test/percent.png';
 import { useState } from 'react';
+import MiddleLine from '@/assets/lines/middleline.svg';
+import Miniline from '@/assets/lines/miniline.svg';
 
 function Payment() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,15 +31,16 @@ function Payment() {
     <Container>
       <section className="payment">
         <div className="left">
-          <h2>от 4,29% годовых</h2>
-          <hr />
+          <h2>от 4,29% годовых
+            <img className='middleline' src={MiddleLine} alt="line" />
+          </h2>
           <p>
             Наш ипотечный брокер подберет для вас лучшие <br /> условия от 20 банков; Господдержка на протяжении <br />всего срока ипотеки.
           </p>
           <Button
             text="Рассчитать ипотеку"
             color="brown"
-            onClick={() => openModal()}
+            onClick={() => openModal('ипотека')}
           />
         </div>
         <div className="right">
@@ -56,14 +59,14 @@ function Payment() {
               первоначальный <br />взнос
             </h4>
           </div>
-          <hr />
           <p>
             Беспроцентная рассрочка<br /> на 12 месяцев при первоначальном взносе
+            <img className='miniline' src={Miniline} alt="line" />
           </p>
           <Button
             text="Узнать условия рассрочки"
             color="brown"
-            onClick={() => openModal()}
+            onClick={() => openModal('рассрочка')}
           />
         </div>
 
