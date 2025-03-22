@@ -5,10 +5,10 @@ function PhotoCard({
   image,
   title,
   description,
-  variant = 'default', // 'default' (Parent), 'side-image', 'stacked'
+  variant = 'default',
   buttonText,
   onButtonClick,
-  linkText, // Для подчёркнутого текста со стрелкой
+  linkText,
   onLinkClick,
 }) {
   return (
