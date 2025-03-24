@@ -1,3 +1,4 @@
+import './Clusters.scss';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from '../../../Container/Container';
@@ -26,6 +27,139 @@ import Modal from '../../../Modals/Modal';
 import BlueBook from '@/assets/modals/blueBook.png';
 import GreenBook from '@/assets/modals/greenBook.png';
 import Line from '@/assets/presentation/bgLine.png';
+
+const MobileSlider = ({ 
+  clusterData, 
+  currentSlide, 
+  setCurrentSlide, 
+  logo, 
+  title, 
+  description,
+  onOpenModal 
+}) => {
+  const [direction, setDirection] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev === clusterData.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentSlide((prev) => (prev === 0 ? clusterData.length - 1 : prev - 1));
+  };
+
+  const goToSlide = (index) => {
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
+  };
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0
+    })
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  return (
+    <div className="mobile-slider">
+      <div className="mobile-slider__header">
+        <h1>{title}</h1>
+        <img src={logo} alt={`Логотип ${title}`} className="mobile-slider__logo" />
+      </div>
+      <p className="mobile-slider__description">{description}</p>
+      
+      <div className="mobile-slider__content">
+        <AnimatePresence custom={direction} initial={false}>
+          <motion.div
+            key={currentSlide}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={(e, { offset, velocity }) => {
+              setIsDragging(false);
+              const swipe = swipePower(offset.x, velocity.x);
+              if (swipe < -swipeConfidenceThreshold) {
+                nextSlide();
+              } else if (swipe > swipeConfidenceThreshold) {
+                prevSlide();
+              }
+            }}
+            className="mobile-slider__slide"
+          >
+            <img 
+              src={clusterData[currentSlide].image} 
+              alt={clusterData[currentSlide].title || `Slide ${currentSlide + 1}`}
+              className="mobile-slider__image"
+              draggable="false"
+            />
+            {clusterData[currentSlide].title && (
+              <p className="mobile-slider__title">{clusterData[currentSlide].title}</p>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      
+      <div className="mobile-slider__controls">
+        <button 
+          className="mobile-slider__arrow" 
+          onClick={prevSlide}
+          aria-label="Previous slide"
+        >
+          <GoArrowLeft />
+        </button>
+        <div className="mobile-slider__dots">
+          {clusterData.map((_, index) => (
+            <button
+              key={index}
+              className={`mobile-slider__dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+        <button 
+          className="mobile-slider__arrow" 
+          onClick={nextSlide}
+          aria-label="Next slide"
+        >
+          <GoArrowRight />
+        </button>
+      </div>
+      
+      <Button 
+        text="Посмотреть планировки" 
+        color="white" 
+        onClick={onOpenModal}
+        className="mobile-slider__button"
+      />
+    </div>
+  );
+};
 
 function Clusters() {
   const blueClusterData = [
@@ -66,12 +200,20 @@ function Clusters() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const nextSlide = (setSlide, length) => {
-    setSlide(prev => (prev === length - 1 ? 0 : prev + 1));
+  const nextSlideBlue = () => {
+    setCurrentBlueSlide((prev) => (prev === blueClusterData.length - 1 ? 0 : prev + 1));
   };
 
-  const prevSlide = (setSlide, length) => {
-    setSlide(prev => (prev === 0 ? length - 1 : prev - 1));
+  const prevSlideBlue = () => {
+    setCurrentBlueSlide((prev) => (prev === 0 ? blueClusterData.length - 1 : prev - 1));
+  };
+
+  const nextSlideGreen = () => {
+    setCurrentGreenSlide((prev) => (prev === greenClusterData.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlideGreen = () => {
+    setCurrentGreenSlide((prev) => (prev === 0 ? greenClusterData.length - 1 : prev - 1));
   };
 
   const calculateOffset = (currentSlide, slideWidth, containerWidth) => {
@@ -80,20 +222,24 @@ function Clusters() {
     return -(currentSlide * slideFullWidth) + centerOffset;
   };
 
+  const handleSubmit = (phone) => {
+    console.log(`Submitted phone from ${activeCluster} cluster:`, phone);
+    setIsModalOpen(false);
+    setActiveCluster(null);
+  };
+
   const openModal = (cluster) => {
     setActiveCluster(cluster);
     setIsModalOpen(true);
   };
 
-  const handleSubmit = (phone) => {
-    console.log(`Submitted phone from ${activeCluster} cluster:`, phone);
-    setIsModalOpen(false);
-  };
-
   const modalProps = {
     isOpen: isModalOpen,
-    onClose: () => setIsModalOpen(false),
-    title: `Получите подробное описание и цены на свободные планировки в кластере ${activeCluster === 'blue' ? 'River Line' : 'Green Line'}`,
+    onClose: () => {
+      setIsModalOpen(false);
+      setActiveCluster(null);
+    },
+    title: 'Получите подробное описание и цены на свободные планировки в кластере River Line',
     text: 'PDF, можно скачать прямо сейчас',
     backgroundImage: Line,
     backgroundColor: activeCluster === 'blue' ? '#1f2057ff' : '#a0a747ff',
@@ -101,95 +247,6 @@ function Clusters() {
     showImages: true,
     onSubmit: handleSubmit,
     buttonText: 'Получить планировки',
-  };
-
-  // мобильный слайдер
-  const MobileSlider = ({ data, logo, title, description, cluster, showTitles = false }) => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [direction, setDirection] = useState(0);
-
-    return (
-      <div className="mobile-slider">
-        <div className="mobile-slider__header">
-          <h1>{title}</h1>
-          <img src={logo} alt={`Логотип ${title}`} className="mobile-slider__logo" />
-        </div>
-        <p className="mobile-slider__description">{description}</p>
-        
-        <div className="mobile-slider__content">
-          <AnimatePresence custom={direction}>
-            <motion.div
-              key={currentSlide}
-              custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction < 0 ? 100 : -100 }}
-              transition={{ duration: 0.3 }}
-              className="slide-container"
-            >
-              <img 
-                src={data[currentSlide].image} 
-                alt={data[currentSlide].title || `Slide ${currentSlide + 1}`}
-                className="mobile-slider__image"
-              />
-              {showTitles && data[currentSlide].title && (
-                <motion.p 
-                  className="mobile-slider__title"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  {data[currentSlide].title}
-                </motion.p>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        
-        <div className="mobile-slider__controls">
-          <button 
-            className="mobile-slider__arrow"
-            onClick={() => {
-              setDirection(-1);
-              prevSlide(setCurrentSlide, data.length);
-            }}
-          >
-            <GoArrowLeft />
-          </button>
-          
-          <div className="mobile-slider__dots">
-            {data.map((_, index) => (
-              <button
-                key={index}
-                className={`mobile-slider__dot ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => {
-                  setDirection(index > currentSlide ? 1 : -1);
-                  setCurrentSlide(index);
-                }}
-                aria-label={`Slide ${index + 1}`}
-              />
-            ))}
-          </div>
-          
-          <button 
-            className="mobile-slider__arrow"
-            onClick={() => {
-              setDirection(1);
-              nextSlide(setCurrentSlide, data.length);
-            }}
-          >
-            <GoArrowRight />
-          </button>
-        </div>
-        
-        <Button 
-          text="Посмотреть планировки" 
-          color="white" 
-          onClick={() => openModal(cluster)}
-          className="mobile-slider__button"
-        />
-      </div>
-    );
   };
 
   return (
@@ -204,28 +261,30 @@ function Clusters() {
         <>
           <div className="mobile-cluster mobile-cluster--blue">
             <MobileSlider
-              data={blueClusterData}
+              clusterData={blueClusterData}
+              currentSlide={currentBlueSlide}
+              setCurrentSlide={setCurrentBlueSlide}
               logo={LogoBlue}
               title="River Line"
-              description="Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки"
-              cluster="blue"
-              showTitles
+              description="Восемь жилых корпусов по 12-14 этажей выстроены вдоль реки Раменки"
+              onOpenModal={() => openModal('blue')}
             />
           </div>
           
           <div className="mobile-cluster mobile-cluster--green">
             <MobileSlider
-              data={greenClusterData}
+              clusterData={greenClusterData}
+              currentSlide={currentGreenSlide}
+              setCurrentSlide={setCurrentGreenSlide}
               logo={LogoGreen}
-              title="Green Line"
+              title="River Line"
               description="Семь 14-этажных жилых корпусов, расположенных вдоль Матвеевского леса"
-              cluster="green"
+              onOpenModal={() => openModal('green')}
             />
           </div>
         </>
       ) : (
         <>
-          {/* Десктопная версия синего кластера */}
           <div className="slider slider-blue">
             <Container>
               <div className="slider-content">
@@ -234,13 +293,13 @@ function Clusters() {
                     <h1>River Line</h1>
                     <img src={LogoBlue} alt="Логотип кластера 1" className="slider-logo" />
                   </div>
-                  <p>Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки</p>
+                  <p>Восемь жилых корпусов по 12-14 этажей выстроены вдоль реки Раменки</p>
                 </div>
                 <Button text="Посмотреть планировки" color="white" onClick={() => openModal('blue')} />
               </div>
             </Container>
             <div className="slider-photos">
-              <button className="slider__arrow slider__arrow--left" onClick={() => prevSlide(setCurrentBlueSlide, blueClusterData.length)}>
+              <button className="slider__arrow slider__arrow--left" onClick={prevSlideBlue}>
                 <GoArrowLeft />
               </button>
               <div className="slider__content">
@@ -258,13 +317,12 @@ function Clusters() {
                   ))}
                 </motion.div>
               </div>
-              <button className="slider__arrow slider__arrow--right" onClick={() => nextSlide(setCurrentBlueSlide, blueClusterData.length)}>
+              <button className="slider__arrow slider__arrow--right" onClick={nextSlideBlue}>
                 <GoArrowRight />
               </button>
             </div>
           </div>
 
-          {/* Десктопная версия зеленого кластера */}
           <div className="slider slider-green">
             <Container>
               <div className="slider-content">
@@ -279,7 +337,7 @@ function Clusters() {
               </div>
             </Container>
             <div className="slider-photos">
-              <button className="slider__arrow slider__arrow--left" onClick={() => prevSlide(setCurrentGreenSlide, greenClusterData.length)}>
+              <button className="slider__arrow slider__arrow--left" onClick={prevSlideGreen}>
                 <GoArrowLeft />
               </button>
               <div className="slider__content">
@@ -305,7 +363,7 @@ function Clusters() {
                   ))}
                 </motion.div>
               </div>
-              <button className="slider__arrow slider__arrow--right" onClick={() => nextSlide(setCurrentGreenSlide, greenClusterData.length)}>
+              <button className="slider__arrow slider__arrow--right" onClick={nextSlideGreen}>
                 <GoArrowRight />
               </button>
             </div>

@@ -122,19 +122,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    
+
       &--left {
         left: 20px;
       }
-    
+
       &--right {
         right: 20px;
       }
-    
+
       &:hover {
         background: rgba(0, 0, 0, 0.9);
       }
-    
+
       svg {
         width: 24px;
         height: 24px;
@@ -145,6 +145,8 @@
   .mobile-cluster {
     padding: 15px 4px;
     margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
 
     &--blue {
       background-color: $color-brand-blue;
@@ -160,13 +162,13 @@
     flex-direction: column;
     gap: 15px;
     color: white;
-    padding: 2px;
+    padding: 4px;
 
     &__header {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 5px;
+      padding: 0 4px;
     }
 
     &__logo {
@@ -174,38 +176,33 @@
       height: auto;
     }
 
-    h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-
     &__description {
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.4;
-      margin-bottom: 10px;
+      padding: 0 4px;
     }
 
     &__content {
       position: relative;
       width: 100%;
       height: 300px;
-      border-radius: 8px;
+      border-radius: 5px;
       overflow: hidden;
-      
-      .slide-container {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
+    }
+
+    &__slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
 
     &__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 8px;
+      user-select: none;
     }
 
     &__title {
@@ -213,13 +210,12 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 12px 15px;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.7);
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;
       font-size: 14px;
       margin: 0;
-      color: white;
     }
 
     &__controls {
@@ -227,7 +223,7 @@
       align-items: center;
       justify-content: center;
       gap: 15px;
-      margin-top: 10px;
+      padding: 0 4px;
     }
 
     &__arrow {
@@ -241,10 +237,11 @@
       justify-content: center;
       color: white;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.2s ease;
+      touch-action: manipulation;
 
       &:active {
-        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.4);
       }
 
       svg {
@@ -263,33 +260,30 @@
       height: 10px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.4);
-      border: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      border: none;
       padding: 0;
+      transition: background 0.2s ease;
 
       &.active {
         background: white;
-        transform: scale(1.2);
       }
 
-      &:focus {
-        outline: none;
+      &:active {
+        transform: scale(1.1);
       }
     }
 
     &__button {
-      width: 100%;
-      margin-top: 15px;
-      transition: all 0.2s ease;
-
-      &:active {
-        transform: scale(0.98);
-      }
+      width: calc(100% - 8px);
+      margin: 10px 4px 0;
     }
   }
+}
 
-  @media (max-width: 768px) {
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+  .clusters {
     padding: 30px 0;
     margin: 30px 0 0 0;
 
