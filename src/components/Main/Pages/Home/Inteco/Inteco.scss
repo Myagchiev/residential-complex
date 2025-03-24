@@ -67,35 +67,35 @@
   // Адаптация для мобильных устройств (до 768px)
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 10px 10px; // Уменьшаем отступы
-    margin: 40px 0 30px; // Уменьшаем внешние отступы
-    min-height: auto; // Высота автоматическая
-    background-size: auto 400px; // Уменьшаем фоновое изображение
-    background-position: center top; // Центрируем фон
-    border-radius: 8px; // Уменьшаем радиус
+    padding: 10px 10px;
+    margin: 40px 0 30px;
+    min-height: auto;
+    background-size: auto 400px;
+    background-position: center top;
+    border-radius: 8px;
 
     .left {
-      width: 100%; // На всю ширину
-      text-align: start; // Центрируем текст
+      width: 100%;
+      text-align: start;
 
       h1 {
-        font-size: 28px; // Уменьшаем заголовок
+        font-size: 28px;
         letter-spacing: -2%;
       }
 
       p:nth-child(2) {
-        margin: 10px 0 40px; // Уменьшаем отступы
-        font-size: 16px; // Уменьшаем текст
+        margin: 10px 0 40px;
+        font-size: 16px;
         line-height: 20px;
       }
 
       h6 {
-        font-size: 20px; // Уменьшаем подзаголовки
+        font-size: 20px;
         line-height: 24px;
       }
 
       p {
-        font-size: 14px; // Уменьшаем текст
+        font-size: 14px;
         line-height: 18px;
         margin: 2px 0 20px;
       }

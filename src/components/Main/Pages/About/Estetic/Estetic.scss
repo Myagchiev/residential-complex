@@ -1,55 +1,168 @@
 .estetic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  div div div > div {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-    div div div > div {
-        display: flex;
-        justify-content: start;
-        margin-left: 16px;
-    }
+    justify-content: start;
+    margin-left: 16px;
+  }
 
-    .icon {
-        margin-left: 20px;
-    }
+  .icon {
+    margin-left: 20px;
+  }
 
-    .estetdiv {
+  .estetdiv {
     padding: 40px 20px 20px 20px;
     background-color: white;
     border-radius: 12px;
     margin-bottom: 12px;
+    width: 100%;
+  }
+
+  h1 {
+    margin: 80px 0 40px 0;
+    font-size: 48px;
+    text-align: center;
+    width: 100%;
+  }
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    h3 {
+      font-family: "TT Travels", sans-serif;
+      font-weight: 500;
+      font-size: 38px;
+      line-height: 100%;
+      letter-spacing: -2px;
+      margin: 10px 170px 10px 0;
     }
-    
+
+    .star {
+      background-color: #F7F1E9;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 100%;
+      padding: 6px 12px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 4px;
+      margin-right: -18px;
+      align-items: center;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Мобильная адаптация (до 768px) */
+  @media (max-width: 768px) {
+    padding: 1px;
+
     h1 {
-        margin: 80px 0 40px 0;
+      font-size: 28px;
+      margin: 20px 0 10px 0;
+      line-height: 32px;
+    }
+
+    .estetdiv {
+      padding: 1px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+
+      div:last-child > img {
+        margin-bottom: 10px;
       }
+    }
 
     div {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      flex-direction: column;
+      gap: 10px;
 
-        h3 {
-            font-family: "TT Travels", sans-serif;
-            font-weight: 500;
-            font-size: 38px;
-            line-height: 100%;
-            letter-spacing: -2px;
-            margin: 10px 170px 10px 0;
-        }
+      > div {
+        width: 100%;
+      }
 
-        .star {
-            background-color: #F7F1E9;
-            font-family: "Helvetica Neue", sans-serif;
-            font-weight: 300;
-            font-size: 18px;
-            line-height: 100%;
-            padding: 6px 12px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            display: flex;
-            gap: 4px;
-            margin-right: -18px;
-        }
+      h3 {
+        font-size: 24px;
+        margin: 8px 0;
+        letter-spacing: -1px;
+      }
+
+      .star {
+        margin-bottom: 10px;
+        font-size: 12px;
+        padding: 4px 8px;
+        width: 190px;
+        margin-right: auto;
+      }
     }
+
+    .icon {
+      margin-left: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    div div div > div {
+      margin-left: 0;
+      align-items: center;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    div > div:last-child {
+      gap: 0px;
+
+      img {
+        height: auto;
+        border-radius: 5px;
+      }
+
+      
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0px;
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .estetdiv {
+      padding: 1px;
+    }
+
+    div {
+      gap: 8px;
+
+      h3 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      .star {
+        font-size: 12px;
+        padding: 4px 8px;
+        width: 190px;
+        margin-right: auto;
+      }
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

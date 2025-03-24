@@ -19,14 +19,19 @@ function Presentation() {
       setIsModalOpen(true);
       setError('');
     } else {
-      setError('Пожалуйста, введите полный номер телефона (10 цифр после +7)');
+      setError(
+        <>
+          Пожалуйста, введите полный номер телефона
+          <br />
+          (10 цифр после +7)
+        </>
+      );
     }
   };
 
-  // Функция для обработки отправки номера телефона
   const handleSubmit = (phone) => {
     console.log('Submitted phone from blue cluster:', phone);
-    setIsModalOpen(false); // Закрываем модалку после отправки
+    setIsModalOpen(false);
   };
 
   return (
@@ -66,7 +71,6 @@ function Presentation() {
           </div>
         </div>
 
-        {/* Модальное окно */}
         <Modal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
@@ -83,6 +87,8 @@ function Presentation() {
           hrWidth="100%"
           onSubmit={handleSubmit}
           buttonText="Закрыть"
+          mobilePadding="15px"
+          mobileHeight="300px"
         />
       </section>
     </Container>

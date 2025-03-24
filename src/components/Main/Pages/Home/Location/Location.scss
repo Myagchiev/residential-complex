@@ -88,8 +88,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; // Исправлено на ширину экрана
-  height: 100vh; // Высота экрана
+  width: 100vw; 
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -99,14 +99,14 @@
 
 .image-container {
   position: relative;
-  max-width: 90%; // Ограничиваем контейнер до 90% ширины экрана
-  max-height: 90vh; // Ограничиваем высоту до 90% экрана
+  max-width: 90%;
+  max-height: 90vh;
 }
 
 .image-container img {
-  width: 100%; // Изображение растягивается на ширину контейнера
-  height: auto; // Высота подстраивается пропорционально
-  max-height: 90vh; // Ограничиваем высоту
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
   display: block;
   border-radius: 10px;
 }
@@ -191,14 +191,14 @@
   }
 
   .image-container {
-    max-width: 95%; // Чуть меньше на мобильных для отступов
+    max-width: 95%;
     max-height: 50vh;
   }
 
   .image-container img {
     width: 100%;
     height: auto;
-    max-height: 85vh; // Уменьшаем для мобильных
+    max-height: 85vh;
   }
 
   .close-icon {

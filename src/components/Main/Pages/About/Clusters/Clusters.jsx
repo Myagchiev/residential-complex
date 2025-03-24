@@ -1,5 +1,5 @@
 import './Clusters.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Container from '../../../Container/Container';
 import Button from '../../../Button/Button';
@@ -56,6 +56,16 @@ function Clusters() {
   const [currentGreenSlide, setCurrentGreenSlide] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCluster, setActiveCluster] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlideBlue = () => {
     setCurrentBlueSlide((prev) => (prev === blueClusterData.length - 1 ? 0 : prev + 1));
@@ -78,9 +88,6 @@ function Clusters() {
     const centerOffset = (containerWidth - slideWidth) / 2;
     return -(currentSlide * slideFullWidth) + centerOffset;
   };
-
-  const slideWidth = 1180;
-  const containerWidth = 1800;
 
   const handleSubmit = (phone) => {
     console.log(`Submitted phone from ${activeCluster} cluster:`, phone);
@@ -109,6 +116,95 @@ function Clusters() {
     buttonText: 'Получить планировки',
   };
 
+  // Мобильный слайдер для синего кластера
+  const MobileBlueSlider = () => (
+    <div className="mobile-slider">
+      <div className="mobile-slider__header">
+        <h1>River Line</h1>
+        <img src={LogoBlue} alt="Логотип кластера 1" className="mobile-slider__logo" />
+      </div>
+      <p className="mobile-slider__description">Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки</p>
+      
+      <div className="mobile-slider__content">
+        <img 
+          src={blueClusterData[currentBlueSlide].image} 
+          alt={blueClusterData[currentBlueSlide].title}
+          className="mobile-slider__image"
+        />
+        <p className="mobile-slider__title">{blueClusterData[currentBlueSlide].title}</p>
+      </div>
+      
+      <div className="mobile-slider__controls">
+        <button className="mobile-slider__arrow" onClick={prevSlideBlue}>
+          <GoArrowLeft />
+        </button>
+        <div className="mobile-slider__dots">
+          {blueClusterData.map((_, index) => (
+            <div 
+              key={index} 
+              className={`mobile-slider__dot ${index === currentBlueSlide ? 'active' : ''}`}
+              onClick={() => setCurrentBlueSlide(index)}
+            />
+          ))}
+        </div>
+        <button className="mobile-slider__arrow" onClick={nextSlideBlue}>
+          <GoArrowRight />
+        </button>
+      </div>
+      
+      <Button 
+        text="Посмотреть планировки" 
+        color="white" 
+        onClick={() => openModal('blue')}
+        className="mobile-slider__button"
+      />
+    </div>
+  );
+
+  // Мобильный слайдер для зеленого кластера
+  const MobileGreenSlider = () => (
+    <div className="mobile-slider">
+      <div className="mobile-slider__header">
+        <h1>River Line</h1>
+        <img src={LogoGreen} alt="Логотип кластера 2" className="mobile-slider__logo" />
+      </div>
+      <p className="mobile-slider__description">Семь 14-этажных жилых корпусов, расположенных вдоль Матвеевского леса</p>
+      
+      <div className="mobile-slider__content">
+        <img 
+          src={greenClusterData[currentGreenSlide].image} 
+          alt={`Slide ${currentGreenSlide + 1}`}
+          className="mobile-slider__image"
+        />
+      </div>
+      
+      <div className="mobile-slider__controls">
+        <button className="mobile-slider__arrow" onClick={prevSlideGreen}>
+          <GoArrowLeft />
+        </button>
+        <div className="mobile-slider__dots">
+          {greenClusterData.map((_, index) => (
+            <div 
+              key={index} 
+              className={`mobile-slider__dot ${index === currentGreenSlide ? 'active' : ''}`}
+              onClick={() => setCurrentGreenSlide(index)}
+            />
+          ))}
+        </div>
+        <button className="mobile-slider__arrow" onClick={nextSlideGreen}>
+          <GoArrowRight />
+        </button>
+      </div>
+      
+      <Button 
+        text="Посмотреть планировки" 
+        color="white" 
+        onClick={() => openModal('green')}
+        className="mobile-slider__button"
+      />
+    </div>
+  );
+
   return (
     <section className="clusters">
       <Container>
@@ -117,91 +213,107 @@ function Clusters() {
         </h1>
       </Container>
 
-      {/* Первый кластер (синий) */}
-      <div className="slider slider-blue">
-        <Container>
-          <div className="slider-content">
-            <div className="slider-text">
-              <div className="subslider">
-                <h1>River Line</h1>
-                <img src={LogoBlue} alt="Логотип кластера 1" className="slider-logo" />
-              </div>
-              <p>Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки</p>
-            </div>
-            <Button text="Посмотреть планировки" color="white" onClick={() => openModal('blue')} />
+      {isMobile ? (
+        <>
+          {/* Мобильная версия синего кластера */}
+          <div className="mobile-cluster mobile-cluster--blue">
+            <MobileBlueSlider />
           </div>
-        </Container>
-        <div className="slider-photos">
-          <button className="slider__arrow slider__arrow--left" onClick={prevSlideBlue}>
-            <GoArrowLeft />
-          </button>
-          <div className="slider__content">
-            <motion.div
-              className="slider__wrapper"
-              initial={{ x: 0 }}
-              animate={{ x: calculateOffset(currentBlueSlide, slideWidth, containerWidth) }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-            >
-              {blueClusterData.map((item, index) => (
-                <div key={index} className="slider__item">
-                  <img src={item.image} alt={item.title} className="slider__image" />
-                  <p className="slider__title">{item.title}</p>
+          
+          {/* Мобильная версия зеленого кластера */}
+          <div className="mobile-cluster mobile-cluster--green">
+            <MobileGreenSlider />
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Десктопная версия синего кластера */}
+          <div className="slider slider-blue">
+            <Container>
+              <div className="slider-content">
+                <div className="slider-text">
+                  <div className="subslider">
+                    <h1>River Line</h1>
+                    <img src={LogoBlue} alt="Логотип кластера 1" className="slider-logo" />
+                  </div>
+                  <p>Восемь жилых корпусов по 12-14 этажей выстроенны вдоль реки Раменки</p>
                 </div>
-              ))}
-            </motion.div>
+                <Button text="Посмотреть планировки" color="white" onClick={() => openModal('blue')} />
+              </div>
+            </Container>
+            <div className="slider-photos">
+              <button className="slider__arrow slider__arrow--left" onClick={prevSlideBlue}>
+                <GoArrowLeft />
+              </button>
+              <div className="slider__content">
+                <motion.div
+                  className="slider__wrapper"
+                  initial={{ x: 0 }}
+                  animate={{ x: calculateOffset(currentBlueSlide, 1180, 1800) }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                  {blueClusterData.map((item, index) => (
+                    <div key={index} className="slider__item">
+                      <img src={item.image} alt={item.title} className="slider__image" />
+                      <p className="slider__title">{item.title}</p>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+              <button className="slider__arrow slider__arrow--right" onClick={nextSlideBlue}>
+                <GoArrowRight />
+              </button>
+            </div>
           </div>
-          <button className="slider__arrow slider__arrow--right" onClick={nextSlideBlue}>
-            <GoArrowRight />
-          </button>
-        </div>
-      </div>
 
-      {/* Второй кластер (зелёный) */}
-      <div className="slider slider-green">
-        <Container>
-          <div className="slider-content">
-            <div className="slider-text">
-              <div className="subslider">
-                <h1>River Line</h1>
-                <img src={LogoGreen} alt="Логотип кластера 2" className="slider-logo" />
-              </div>
-              <p>Семь 14-этажных жилых корпусов, расположенных вдоль Матвеевского леса</p>
-            </div>
-            <Button text="Посмотреть планировки" color="white" onClick={() => openModal('green')} />
-          </div>
-        </Container>
-        <div className="slider-photos">
-          <button className="slider__arrow slider__arrow--left" onClick={prevSlideGreen}>
-            <GoArrowLeft />
-          </button>
-          <div className="slider__content">
-            <motion.div
-              className="slider__wrapper"
-              initial={{ x: 0 }}
-              animate={{ x: calculateOffset(currentGreenSlide, 1320, containerWidth) }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-            >
-              {greenClusterData.map((item, index) => (
-                <div key={index} className="slider__item">
-                  <img
-                    src={item.image}
-                    alt={`Slide ${index + 1}`}
-                    className="slider__image"
-                    style={{
-                      width: '1320px',
-                      height: '580px',
-                      borderRadius: '5px',
-                    }}
-                  />
+          {/* Десктопная версия зеленого кластера */}
+          <div className="slider slider-green">
+            <Container>
+              <div className="slider-content">
+                <div className="slider-text">
+                  <div className="subslider">
+                    <h1>River Line</h1>
+                    <img src={LogoGreen} alt="Логотип кластера 2" className="slider-logo" />
+                  </div>
+                  <p>Семь 14-этажных жилых корпусов, расположенных вдоль Матвеевского леса</p>
                 </div>
-              ))}
-            </motion.div>
+                <Button text="Посмотреть планировки" color="white" onClick={() => openModal('green')} />
+              </div>
+            </Container>
+            <div className="slider-photos">
+              <button className="slider__arrow slider__arrow--left" onClick={prevSlideGreen}>
+                <GoArrowLeft />
+              </button>
+              <div className="slider__content">
+                <motion.div
+                  className="slider__wrapper"
+                  initial={{ x: 0 }}
+                  animate={{ x: calculateOffset(currentGreenSlide, 1320, 1800) }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                >
+                  {greenClusterData.map((item, index) => (
+                    <div key={index} className="slider__item">
+                      <img
+                        src={item.image}
+                        alt={`Slide ${index + 1}`}
+                        className="slider__image"
+                        style={{
+                          width: '1320px',
+                          height: '580px',
+                          borderRadius: '5px',
+                        }}
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+              <button className="slider__arrow slider__arrow--right" onClick={nextSlideGreen}>
+                <GoArrowRight />
+              </button>
+            </div>
           </div>
-          <button className="slider__arrow slider__arrow--right" onClick={nextSlideGreen}>
-            <GoArrowRight />
-          </button>
-        </div>
-      </div>
+        </>
+      )}
 
       {/* Единая модалка для обоих кластеров */}
       <Modal {...modalProps} />

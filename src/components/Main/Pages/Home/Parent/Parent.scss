@@ -4,7 +4,6 @@
   background-color: $color-main-white;
   position: relative;
 
-  // Сетка для десктопа
   .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

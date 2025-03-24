@@ -73,7 +73,7 @@
     }
 
     .slider__content {
-      width: 100%; // Видимая область шире слайда
+      width: 100%;
       height: 580px;
       overflow: hidden;
       margin: 0 auto;
@@ -81,12 +81,12 @@
 
     .slider__wrapper {
       display: flex;
-      gap: 20px; // Отступ между слайдами
+      gap: 20px;
     }
 
     .slider__item {
       position: relative;
-      flex: 0 0 1180px; // Ширина слайда
+      flex: 0 0 1180px;
       height: 580px;
     }
 
@@ -100,7 +100,7 @@
     .slider__title {
       position: absolute;
       bottom: 20px;
-      left: 50%; // Ставим левый край в центр
+      left: 50%;
       transform: translateX(-50%);
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;
@@ -141,5 +141,139 @@
           height: 24px;
         }
       }
+  }
+}
+
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+  .clusters {
+    padding: 30px 0;
+    margin: 30px 0 0 0;
+
+    .clusters-title {
+      font-size: 28px;
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+
+    br {
+      display: block;
+    }
+  }
+
+  .mobile-cluster {
+    padding: 15px 4px;
+    margin-bottom: 20px;
+
+    &--blue {
+      background-color: $color-brand-blue;
+    }
+
+    &--green {
+      background-color: $color-brand-green;
+    }
+  }
+
+  .mobile-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &__logo {
+      width: 40px;
+      height: auto;
+    }
+
+    &__description {
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    &__content {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 5px 5px;
+      background: rgba(0, 0, 0, 0.7);
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    &__controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    &__arrow {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    &__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+
+      &.active {
+        background: white;
+      }
+    }
+
+    &__button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  .slider {
+    display: none;
   }
 }

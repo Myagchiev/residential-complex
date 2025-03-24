@@ -18,14 +18,14 @@
       width: 140px;
       position: absolute;
       top: 370px;
-      left: 45px;
+      left: 40px;
 
       h6 {
         font-family: "TT Travels", sans-serif;
         font-weight: 700;
         font-size: 16px;
         line-height: 16px;
-        letter-spacing: -1px;
+        letter-spacing: 1px;
       }
 
       p {
@@ -98,7 +98,6 @@
       width: 250px;
       margin: 12px 12px 12px 0;
     }
-    
 
     input::placeholder {
       color: $color-text-primary;
@@ -110,10 +109,9 @@
       text-underline-offset: 2px;
     }
 
-    /* Стили для ошибки */
     .error {
       position: absolute;
-      top: 58px; // Специфично для Presentation
+      top: -15px;
       left: 0;
       color: #ff0000;
       font-family: "Helvetica Neue", sans-serif;
@@ -128,6 +126,9 @@
       position: relative;
       display: flex;
       align-items: center;
+      br {
+        display: none;
+      }
     }
   }
 
@@ -143,6 +144,121 @@
     height: 1px;
     background-color: $color-line-primary;
     margin-top: 28px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px 5px;
+    background-position: center bottom;
+    border-radius: 8px;
+
+    .left {
+      width: 100%;
+      text-align: start;
+
+      p:first-child {
+        margin-left: 0;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 12px 0 16px 0;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 8px;
+      }
+
+      p:last-child {
+        text-align: center;
+      }
+
+      br {
+        display: block;
+      }
+    }
+
+    .phone {
+      align-items: center;
+      gap: 8px;
+
+      p:nth-child(2) {
+        font-size: 14px;
+        margin: 0px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      input {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px;
+        font-size: 14px;
+        margin: 8px 0;
+      }
+
+      .error {
+        top: -12px;
+        font-size: 10px;
+        text-align: left;
+        width: 100%;
+      }
+
+      > div {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+
+        br {
+          display: block;
+        }
+      }
+    }
+
+    .long {
+      width: 100%;
+    }
+
+    hr {
+      margin-top: 0px;
+    }
+
+    .right {
+      width: 100%;
+      margin-top: 20px;
+      text-align: center;
+
+      img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+
+      .person {
+        position: static;
+        width: 100%;
+        padding: 10px;
+        color: $color-text-primary;
+        background: rgba(255, 255, 255, 0);
+
+        h6 {
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 16px;
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 

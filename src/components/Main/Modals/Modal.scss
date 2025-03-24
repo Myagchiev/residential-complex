@@ -18,11 +18,20 @@
   justify-content: space-between;
   overflow: hidden;
   box-sizing: border-box;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
 
 .modal-left {
   width: 45.7%;
   position: relative;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    display: none;
+    opacity: 0;
+    width: 0;
+  }
 }
 
 .modal-background {
@@ -35,28 +44,50 @@
 
 .modal-foreground {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 26px;
   width: 326px;
   height: 470px;
+  object-fit: contain;
 }
 
 .modal-right {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .modal-logo {
   width: 100px;
   height: auto;
   margin: 0 0 10px 160px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    margin: 0 auto 8px;
+    width: 80px;
+  }
 }
 
 .modal-right h6 {
   font-family: 'TT Travels', sans-serif;
   font-weight: 700;
-  line-height: 115%;
+  line-height: 120%;
+  margin: 0 0 15px 0;
+  letter-spacing: -1px;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 10px 0;
+  }
 }
 
 .modal-right p {
@@ -64,28 +95,28 @@
   font-weight: 300;
   line-height: 30px;
   margin: 15px 0 5px 0;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 8px 0;
+  }
 }
 
 .modal-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: all 0.3s ease;
 
   > div {
     position: relative;
+    width: 100%;
   }
 
-  .error {
-    position: absolute;
-    top: 8px;
-    left: 0;
-    color: #ff0000;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 14px;
-    margin-top: 4px;
-    z-index: 1;
+  @media (max-width: 768px) {
+    gap: 8px;
   }
 }
 
@@ -96,21 +127,59 @@
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 16px;
   width: 100%;
-  margin-top: 30px;
   background-color: #F5F3F0;
   color: #1a1a1a;
+  transition: all 0.3s ease;
+
   &::placeholder {
     color: #646562;
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 8px;
+  }
 }
 
-.modal-form .policytext {
+.error {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  color: #ff0000;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 14px;
-  text-align: center;
+  margin-top: 4px;
+  z-index: 1;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    top: -35%;
+    left: 0;
+  }
 }
 
-.modal-form .policy {
+.policytext {
+  line-height: 120% !important;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    line-height: 16px;
+
+    br {
+      display: block;
+    }
+  }
+}
+
+.policy {
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
@@ -120,8 +189,12 @@ hr {
   border: none;
   height: 1px;
   background-color: $color-line-primary;
-  margin-bottom: -6px;
   width: 100%;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    margin: 1px 0;
+  }
 }
 
 @keyframes fadeIn {
@@ -129,65 +202,26 @@ hr {
   to { opacity: 1; }
 }
 
-// Адаптация для мобильных устройств (до 768px)
+/* Мобильная адаптация (до 768px) */
 @media (max-width: 768px) {
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
   .modal {
-    flex-direction: column; // Вертикальная компоновка
-    width: 90%; // Уменьшаем ширину модалки
-    height: auto; // Высота автоматическая
-    max-width: 400px; // Ограничиваем ширину
-    border-radius: 10px; // Уменьшаем радиус
-  }
-
-  .modal-left {
-    width: 100%; // Картинка на всю ширину
-    height: 200px; // Фиксированная высота для мобильных
-  }
-
-  .modal-background {
-    background-size: cover;
-    background-position: center;
-  }
-
-  .modal-foreground {
-    width: 100%; // Масштабируем передний план
-    height: auto;
-    left: 0;
-    bottom: 0;
+    flex-direction: column;
+    width: var(--mobile-width, 100%);
+    height: var(--mobile-height, auto);
+    max-width: var(--mobile-max-width, 375px);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   .modal-right {
-    width: 100%; // Правая часть на всю ширину
-    padding: 20px; // Уменьшаем отступы
-    text-align: center; // Центрируем текст
-  }
-
-  .modal-logo {
-    margin: 0 auto 10px; // Центрируем логотип
-    width: 80px; // Уменьшаем размер логотипа
-  }
-
-  .modal-right h6 {
-    font-size: 20px; // Уменьшаем заголовок
-  }
-
-  .modal-right p {
-    font-size: 16px; // Уменьшаем текст
-    line-height: 24px;
-    margin: 10px 0;
-  }
-
-  .modal-input {
-    margin-top: 20px; // Уменьшаем отступ сверху
-    font-size: 14px; // Уменьшаем шрифт ввода
-  }
-
-  .modal-form .policytext {
-    font-size: 12px; // Уменьшаем текст политики
-    line-height: 16px;
-  }
-
-  hr {
-    margin: 10px 0; // Корректируем отступы
+    width: 100%;
+    padding: var(--mobile-padding, 10px);
+    background-color: inherit;
   }
 }
