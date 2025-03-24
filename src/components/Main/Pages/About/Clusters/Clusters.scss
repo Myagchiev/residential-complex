@@ -3,15 +3,14 @@
   padding: 50px 0;
   margin: 60px 0 0 0;
 
-
   .clusters-title {
-      font-family: "TT Travels", sans-serif;
-      font-weight: 700;
-      font-size: 48px;
-      line-height: 100%;
-      margin: 20px 0 40px 450px;
-      color: $color-text-primary;
-      text-align: center;
+    font-family: "TT Travels", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    margin: 20px 0 40px 450px;
+    color: $color-text-primary;
+    text-align: center;
   }
 
   .slider {
@@ -38,8 +37,8 @@
         gap: 10px;
 
         .subslider {
-            display: flex;
-            gap: 20px;
+          display: flex;
+          gap: 20px;
         }
 
         .slider-logo {
@@ -109,55 +108,37 @@
     }
 
     .slider__arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      
-        &--left {
-          left: 20px;
-        }
-      
-        &--right {
-          right: 20px;
-        }
-      
-        &:hover {
-          background: rgba(0, 0, 0, 0.9);
-        }
-      
-        svg {
-          width: 24px;
-          height: 24px;
-        }
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      &--left {
+        left: 20px;
       }
-  }
-}
-
-/* Мобильная версия (до 768px) */
-@media (max-width: 768px) {
-  .clusters {
-    padding: 30px 0;
-    margin: 30px 0 0 0;
-
-    .clusters-title {
-      font-size: 28px;
-      margin: 0 0 30px 0;
-      text-align: center;
-    }
-
-    br {
-      display: block;
+    
+      &--right {
+        right: 20px;
+      }
+    
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+      }
+    
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
@@ -177,13 +158,15 @@
   .mobile-slider {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     color: white;
+    padding: 2px;
 
     &__header {
       display: flex;
       align-items: center;
       gap: 15px;
+      margin-bottom: 5px;
     }
 
     &__logo {
@@ -191,25 +174,38 @@
       height: auto;
     }
 
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
     &__description {
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 1.4;
+      margin-bottom: 10px;
     }
 
     &__content {
       position: relative;
       width: 100%;
       height: 300px;
-      border-radius: 5px;
+      border-radius: 8px;
       overflow: hidden;
+      
+      .slide-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 8px;
     }
 
     &__title {
@@ -217,12 +213,13 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 5px 5px;
-      background: rgba(0, 0, 0, 0.7);
+      padding: 12px 15px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;
       font-size: 14px;
       margin: 0;
+      color: white;
     }
 
     &__controls {
@@ -230,6 +227,7 @@
       align-items: center;
       justify-content: center;
       gap: 15px;
+      margin-top: 10px;
     }
 
     &__arrow {
@@ -243,6 +241,11 @@
       justify-content: center;
       color: white;
       cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
 
       svg {
         width: 20px;
@@ -260,20 +263,48 @@
       height: 10px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.4);
+      border: none;
       cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
 
       &.active {
         background: white;
+        transform: scale(1.2);
+      }
+
+      &:focus {
+        outline: none;
       }
     }
 
     &__button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px;
+      transition: all 0.2s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
     }
   }
 
-  .slider {
-    display: none;
+  @media (max-width: 768px) {
+    padding: 30px 0;
+    margin: 30px 0 0 0;
+
+    .clusters-title {
+      font-size: 28px;
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+
+    br {
+      display: block;
+    }
+
+    .slider {
+      display: none;
+    }
   }
 }

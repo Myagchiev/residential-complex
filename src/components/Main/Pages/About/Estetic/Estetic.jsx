@@ -42,7 +42,7 @@ function Estet () {
                         </div>
                         </div>
                         <div>
-                            <img src={Estetic} alt="photo" />
+                            <img className='firstphoto' src={Estetic} alt="photo" />
                             <img src={Estetic2} alt="photo" />
                         </div>
                     </div>
@@ -70,7 +70,7 @@ function Estet () {
                         </div>
                         </div>
                         <div>
-                            <img src={Estetic3} alt="photo" />
+                            <img className='firstphoto' src={Estetic3} alt="photo" />
                             <img src={Estetic4} alt="photo" />
                         </div>
                     </div>

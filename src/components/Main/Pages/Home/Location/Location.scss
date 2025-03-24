@@ -88,7 +88,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -101,14 +101,15 @@
   position: relative;
   max-width: 90%;
   max-height: 90vh;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
-  display: block;
-  border-radius: 10px;
+  
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .close-icon {

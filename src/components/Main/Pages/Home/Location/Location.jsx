@@ -7,6 +7,7 @@ import littleLine from '@/assets/lines/littleline.svg';
 import panorama from '@/assets/location/panorama.png';
 import { useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Location() {
   const [isImageVisible, setIsImageVisible] = useState(false);
@@ -40,17 +41,38 @@ function Location() {
         </div>
       </section>
 
-      {isImageVisible && (
-        <div className="image-overlay" onClick={() => setIsImageVisible(false)}>
-          <div className="image-container" onClick={(e) => e.stopPropagation()}>
-            <img src={panorama} alt="Panorama" loading="lazy" />
-            <IoCloseOutline
-              className="close-icon"
-              onClick={() => setIsImageVisible(false)}
-            />
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isImageVisible && (
+          <motion.div
+            className="image-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsImageVisible(false)}
+          >
+            <motion.div
+              className="image-container"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <img src={panorama} alt="Panorama" loading="lazy" />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <IoCloseOutline
+                  className="close-icon"
+                  onClick={() => setIsImageVisible(false)}
+                />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Container>
   );
 }

@@ -9,6 +9,22 @@ function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const isMobile = window.innerWidth <= 768;
+
+  const desktopVariants = {
+    initial: { opacity: 0, width: 0 },
+    animate: { opacity: 1, width: 'auto' },
+    exit: { opacity: 0, width: 0 },
+  };
+
+  const mobileVariants = {
+    initial: { opacity: 0, x: '100%' },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: '100%' },
+  };
+
+  const variants = isMobile ? mobileVariants : desktopVariants;
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -25,9 +41,9 @@ function Navbar() {
           {isOpen && (
             <motion.div
               className="navbar-menu"
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 'auto' }}
-              exit={{ opacity: 0, width: 0 }}
+              initial={variants.initial}
+              animate={variants.animate}
+              exit={variants.exit}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
               <ul>

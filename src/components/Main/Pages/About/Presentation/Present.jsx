@@ -39,7 +39,7 @@ function Presentation() {
       <section className="presentation">
         <div className="left">
           <p>СПЕЦИАЛЬНО ДЛЯ ВАС</p>
-          <h1>Персональная презентация West Garden</h1>
+          <h1>Персональная презентация <br /> West Garden</h1>
           <p><img src={Arrow} alt="стрелка" /> Подробно расскажем про жилой комплекс</p>
           <p><img src={Arrow} alt="стрелка" /> Ознакомитесь со всеми планировками и ценами</p>
           <p><img src={Arrow} alt="стрелка" /> Прогуляетесь по благоустроенной набережной</p>

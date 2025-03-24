@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Parent.scss';
 import PhotoCard from '../../../PhotoCard/PhotoCard';
 import photo1 from '@/assets/grid/20.png';
@@ -8,6 +8,7 @@ import photo3 from '@/assets/grid/7.png';
 import photo4 from '@/assets/grid/2.png';
 import Container from '../../../Container/Container';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
+import { useSwipeable } from 'react-swipeable';
 
 function Parent() {
   const photoData = [
@@ -18,14 +19,38 @@ function Parent() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0
+    })
+  };
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % photoData.length);
   };
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + photoData.length) % photoData.length);
   };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: prevSlide,
+    trackMouse: true
+  });
 
   return (
     <Container>
@@ -42,30 +67,63 @@ function Parent() {
             />
           ))}
         </div>
-        <div className="slider-wrapper">
-          <motion.div
-            className="slider-content"
-            initial={{ x: 0 }}
-            animate={{ x: `-${currentSlide * 100}%` }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            {photoData.map((item, index) => (
+        
+        <div className="mobile-slider" {...swipeHandlers}>
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.div
+              key={currentSlide}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              className="slide"
+            >
               <PhotoCard
-                key={index}
-                image={item.image}
-                title={item.title}
-                description={item.description}
+                image={photoData[currentSlide].image}
+                title={photoData[currentSlide].title}
+                description={photoData[currentSlide].description}
                 variant="default"
                 loading="lazy"
               />
-            ))}
-          </motion.div>
-          <button className="slider-arrow slider-arrow--left" onClick={prevSlide}>
-            <GoArrowLeft />
-          </button>
-          <button className="slider-arrow slider-arrow--right" onClick={nextSlide}>
-            <GoArrowRight />
-          </button>
+            </motion.div>
+          </AnimatePresence>
+          
+          <div className="slider-controls">
+            <button 
+              className="slider-arrow slider-arrow--left" 
+              onClick={prevSlide}
+              aria-label="Previous slide"
+            >
+              <GoArrowLeft />
+            </button>
+            
+            <div className="pagination-dots">
+              {photoData.map((_, index) => (
+                <button
+                  key={index}
+                  className={`dot ${currentSlide === index ? 'active' : ''}`}
+                  onClick={() => {
+                    setDirection(index > currentSlide ? 1 : -1);
+                    setCurrentSlide(index);
+                  }}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <button 
+              className="slider-arrow slider-arrow--right" 
+              onClick={nextSlide}
+              aria-label="Next slide"
+            >
+              <GoArrowRight />
+            </button>
+          </div>
         </div>
       </section>
     </Container>
