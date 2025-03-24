@@ -1,4 +1,3 @@
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -122,10 +121,73 @@ hr {
   height: 1px;
   background-color: $color-line-primary;
   margin-bottom: -6px;
-  width: 100%
+  width: 100%;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+// Адаптация для мобильных устройств (до 768px)
+@media (max-width: 768px) {
+  .modal {
+    flex-direction: column; // Вертикальная компоновка
+    width: 90%; // Уменьшаем ширину модалки
+    height: auto; // Высота автоматическая
+    max-width: 400px; // Ограничиваем ширину
+    border-radius: 10px; // Уменьшаем радиус
+  }
+
+  .modal-left {
+    width: 100%; // Картинка на всю ширину
+    height: 200px; // Фиксированная высота для мобильных
+  }
+
+  .modal-background {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .modal-foreground {
+    width: 100%; // Масштабируем передний план
+    height: auto;
+    left: 0;
+    bottom: 0;
+  }
+
+  .modal-right {
+    width: 100%; // Правая часть на всю ширину
+    padding: 20px; // Уменьшаем отступы
+    text-align: center; // Центрируем текст
+  }
+
+  .modal-logo {
+    margin: 0 auto 10px; // Центрируем логотип
+    width: 80px; // Уменьшаем размер логотипа
+  }
+
+  .modal-right h6 {
+    font-size: 20px; // Уменьшаем заголовок
+  }
+
+  .modal-right p {
+    font-size: 16px; // Уменьшаем текст
+    line-height: 24px;
+    margin: 10px 0;
+  }
+
+  .modal-input {
+    margin-top: 20px; // Уменьшаем отступ сверху
+    font-size: 14px; // Уменьшаем шрифт ввода
+  }
+
+  .modal-form .policytext {
+    font-size: 12px; // Уменьшаем текст политики
+    line-height: 16px;
+  }
+
+  hr {
+    margin: 10px 0; // Корректируем отступы
+  }
 }

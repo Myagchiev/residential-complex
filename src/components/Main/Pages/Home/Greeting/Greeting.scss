@@ -6,9 +6,13 @@
   text-align: center;
   background-color: $color-main-white;
 
-
   .maintitle {
     position: relative;
+
+    .logotwo {
+      max-width: 100%;
+      height: auto;
+    }
 
     h1 {
       font-size: 64px;
@@ -34,12 +38,18 @@
   .mainland {
     position: relative;
     text-align: center;
+
+    img {
+      max-width: 100%; // Масштабируем изображение
+      height: auto;
+      display: block; // Убираем лишние отступы
+    }
   }
 
   .award-div {
     position: absolute;
     top: -20px;
-    left: 1577px;
+    left: 87%;
     width: 200px;
     height: 124px;
     background-color: white;
@@ -80,6 +90,50 @@
 
       span {
         color: $color-brand-green;
+      }
+    }
+  }
+
+  // Адаптация для мобильных устройств (до 768px)
+  @media (max-width: 768px) {
+    padding: 1px;
+
+    .maintitle {
+      h1 {
+        font-size: 28px;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+        padding-bottom: 20px;
+      }
+
+      .mainline {
+        display: none;
+      }
+    }
+
+    .mainland {
+      img {
+        object-fit: cover;
+      }
+
+      .award-div {
+        position: static;
+        width: 70%;
+        height: auto;
+        padding: 10px;
+        margin: 20px auto 0;
+      }
+
+      .when {
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        gap: 20px;
+        width: max-content;
       }
     }
   }

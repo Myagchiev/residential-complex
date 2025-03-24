@@ -12,6 +12,11 @@
     display: flex;
     gap: 200px;
     margin-bottom: 20px; // Отступ перед hr
+
+    img {
+      max-width: 100%; // Логотип масштабируется
+      height: auto;
+    }
   }
 
   .footer-bottom {
@@ -33,10 +38,15 @@
     align-items: center;
     gap: 25px;
     margin-top: 50px;
+
+    img {
+      max-width: 100%; // Логотипы масштабируются
+      height: auto;
+    }
   }
 
   .office-address,
-  .office-phone  {
+  .office-phone {
     display: flex;
     justify-content: space-between;
     gap: 50px;
@@ -50,7 +60,7 @@
   .office-phone > div {
     display: flex;
     gap: 5px;
-    
+
     p:first-child {
       font-weight: 400;
     }
@@ -85,5 +95,80 @@
     font-family: "TT Travels", sans-serif;
     font-size: 16px;
     font-weight: 500;
+  }
+
+  // Адаптация для мобильных устройств (до 768px)
+  @media (max-width: 768px) {
+    padding: 20px 5px 40px 10px; // Уменьшаем отступы
+    background-size: auto 280px; // Уменьшаем фоновую картинку
+    background-position: bottom left; // Центрируем фон
+
+    .garden {
+      flex-direction: column; // Вертикальная компоновка
+      gap: 10px; // Уменьшаем расстояние
+      text-align: start; // Центрируем текст
+      margin-bottom: 15px;
+      position: relative;
+      
+      .logo2 {
+        display: none;
+      }
+
+      h3 {
+        font-size: 22px; // Уменьшаем заголовок
+        line-height: 28px;
+      }
+
+      img {
+        width: 120px; // Уменьшаем логотип
+        margin: 0 auto; // Центрируем
+      }
+    }
+
+    .footer-bottom {
+      justify-content: center; // Центрируем содержимое
+    }
+
+    .office {
+      width: 100%; // На всю ширину
+      gap: 15px; // Уменьшаем промежутки
+      text-align: start; // Центрируем текст
+    }
+
+    .office-logos {
+      margin-top: 20px; // Уменьшаем отступ сверху
+      gap: 15px; // Уменьшаем расстояние между логотипами
+      justify-content: center; // Центрируем логотипы
+
+      img {
+        width: 120px; // Уменьшаем логотипы
+      }
+
+      p {
+        font-size: 20px; // Уменьшаем разделитель
+      }
+    }
+
+    .office-address,
+    .office-phone {
+      flex-direction: column; // Вертикальная компоновка
+      gap: 10px; // Уменьшаем расстояние
+      padding-right: 0; // Убираем правый отступ
+
+      p {
+        font-size: 16px; // Уменьшаем текст
+        line-height: 20px;
+        width: 50%;
+      }
+    }
+
+    .office-phone > div {
+      flex-direction: column; // Телефон и "работаем" вертикально
+      align-items: start;
+
+      span {
+        font-size: 14px; // Уменьшаем "работаем"
+      }
+    }
   }
 }

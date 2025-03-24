@@ -24,44 +24,85 @@
     }
 
     h6 {
-      font-family: "TT Travels", sans-serif;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 32px;
-    letter-spacing: -2%;
+      font-family: 'TT Travels', sans-serif;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 32px;
+      letter-spacing: -2%;
     }
 
     p {
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       font-weight: 300;
       font-size: 20px;
       line-height: 26px;
       letter-spacing: -1%;
       margin: 2px 0 26px;
       opacity: 80%;
-    } 
+    }
   }
 
   .right {
-
     li {
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       font-weight: 300;
       font-size: 16px;
       line-height: 20px;
       letter-spacing: 0%;
       margin-top: 8px;
     }
-  
+
     li span {
       border-bottom: 1px solid #ffffff79;
     }
-  
+
     li:first-child {
       font-weight: 400;
       span {
         border-bottom: none;
       }
+    }
+  }
+
+  // Адаптация для мобильных устройств (до 768px)
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px 10px; // Уменьшаем отступы
+    margin: 40px 0 30px; // Уменьшаем внешние отступы
+    min-height: auto; // Высота автоматическая
+    background-size: auto 400px; // Уменьшаем фоновое изображение
+    background-position: center top; // Центрируем фон
+    border-radius: 8px; // Уменьшаем радиус
+
+    .left {
+      width: 100%; // На всю ширину
+      text-align: start; // Центрируем текст
+
+      h1 {
+        font-size: 28px; // Уменьшаем заголовок
+        letter-spacing: -2%;
+      }
+
+      p:nth-child(2) {
+        margin: 10px 0 40px; // Уменьшаем отступы
+        font-size: 16px; // Уменьшаем текст
+        line-height: 20px;
+      }
+
+      h6 {
+        font-size: 20px; // Уменьшаем подзаголовки
+        line-height: 24px;
+      }
+
+      p {
+        font-size: 14px; // Уменьшаем текст
+        line-height: 18px;
+        margin: 2px 0 20px;
+      }
+    }
+
+    .right {
+        display: none;
     }
   }
 }

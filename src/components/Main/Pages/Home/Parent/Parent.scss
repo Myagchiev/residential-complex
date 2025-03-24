@@ -1,9 +1,85 @@
 .parent {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 20px;
   padding: 2rem;
   background-color: $color-main-white;
+  position: relative;
+
+  // Сетка для десктопа
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  // Слайдер для мобильных (скрыт на десктопе)
+  .slider-wrapper {
+    display: none;
+
+    .slider-content {
+      display: flex;
+    }
+
+    .photo-card--default {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      
+      .photo-card__title {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 4px 8px;
+      }
+
+      .photo-card__description {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 4px 8px;
+      }
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--left { left: 10px; }
+      &--right { right: 10px; }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  // Медиа-запрос для мобильных
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    padding: 1px;
+
+    .grid-wrapper {
+      display: none;
+    }
+
+    .slider-wrapper {
+      display: block;
+      overflow: hidden;
+    }
+  }
 }

@@ -17,3 +17,19 @@ h1 {
   box-sizing: border-box;
 }
 
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 1px;
+  }
+  br {
+    display: none;
+  }
+
+
+  h1 {
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: -1px;
+  }
+}

@@ -19,7 +19,7 @@ export default defineConfig({
           { name: 'collapseGroups', active: true },
         ],
       },
-      // webp: { quality: 75 }, // Раскомментируйте, если нужна конверсия в WebP
+      webp: { quality: 75 },
     }),
   ],
   base: '/',

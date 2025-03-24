@@ -11,7 +11,7 @@ $menu-bg: #444;
   width: 100%;
   height: 80px;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Добавлена тень
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
   .navbar-logo {
@@ -133,6 +133,61 @@ $menu-bg: #444;
       color: white;
       font-family: "TT Travels", sans-serif;
       font-size: 1.1rem;
+    }
+  }
+
+  // Медиа-запрос для мобильных
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem; // Уточняем отступы
+    height: 60px;
+    max-width: 100vw; // Ограничиваем ширину
+
+    .navbar-logo {
+      gap: 10px;
+
+      .logo {
+        height: 30px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    .navbar-menu-container {
+      position: static;
+      transform: none;
+    }
+
+    &-menu-btn {
+      font-size: 1rem;
+      padding: 0.3rem 0.8rem;
+    }
+
+    &-menu {
+      top: 60px;
+      left: 0;
+      width: 100vw; // Полная ширина экрана
+      transform: none;
+      box-sizing: border-box;
+
+      ul {
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+      }
+
+      li {
+        padding: 0.8rem;
+      }
+
+      a {
+        font-size: 1rem;
+      }
+    }
+
+    &-phone {
+      display: none;
     }
   }
 }

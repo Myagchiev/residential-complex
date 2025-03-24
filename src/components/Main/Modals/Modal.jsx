@@ -21,13 +21,12 @@ function Modal({
   buttonText = 'дефолт баттон',
   modalWidth = showImages ? 774 : 520,
   modalHeight = showImages ? 480 : 410,
-  // Новые пропсы
   rightPadding = showImages ? '30px' : '40px',
   rightBackgroundColor = '#fff',
   rightAlign = 'start', // 'start', 'center', 'end'
   rightTextAlign = 'left', // 'left', 'center', 'right'
   formGap = '10px',
-  hrColor = '$color-line-primary', // Оставляем возможность переопределить цвет
+  hrColor = '$color-line-primary',
   hrWidth = '100%',
 }) {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -57,7 +56,7 @@ function Modal({
         {showImages && (
           <div className="modal-left" style={{ backgroundColor }}>
             <div className="modal-background" style={{ backgroundImage: `url(${backgroundImage})` }} />
-            <img src={foregroundImage} alt="Foreground" className="modal-foreground" />
+            <img src={foregroundImage} alt="Foreground" className="modal-foreground" loading="lazy" />
           </div>
         )}
         <div
@@ -67,14 +66,14 @@ function Modal({
             padding: rightPadding,
             backgroundColor: rightBackgroundColor,
             justifyContent: rightAlign === 'center' ? 'center' : rightAlign === 'end' ? 'flex-end' : 'flex-start',
-            textAlign: rightTextAlign, 
+            textAlign: rightTextAlign,
           }}
         >
-          {logo && <img src={logo} alt="Logo" className="modal-logo" />}
+          {logo && <img src={logo} alt="Logo" className="modal-logo" loading="lazy" />}
           <h6 style={{ color: titleColor, fontSize: showImages ? '28px' : '24px' }}>{title}</h6>
           <p style={{ color: textColor, fontSize: showImages ? '20px' : '18px' }}>{text}</p>
-          <hr style={{ backgroundColor: hrColor, width: hrWidth }} /> 
-          <div className="modal-form" style={{ gap: formGap }}> 
+          <hr style={{ backgroundColor: hrColor, width: hrWidth }} />
+          <div className="modal-form" style={{ gap: formGap }}>
             <div style={{ position: 'relative' }}>
               <IMaskInput
                 mask="+7 000-000-00-00"
@@ -83,7 +82,7 @@ function Modal({
                 type="tel"
                 value={phoneNumber}
                 onAccept={(value) => setPhoneNumber(value)}
-                style={{ backgroundColor: inputBackground}}
+                style={{ backgroundColor: inputBackground }}
                 className="modal-input"
               />
               {error && (
