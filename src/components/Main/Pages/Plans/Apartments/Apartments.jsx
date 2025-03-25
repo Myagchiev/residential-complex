@@ -103,7 +103,7 @@ function Apartments() {
           title={`Узнайте стоимость: ${selectedCard?.title || ''}`}
           text="Оставьте номер телефона, чтобы получить подробную информацию о стоимости"
           showImages={false}
-          rightPadding="20px 40px"
+          rightPadding="20px 30px"
           rightBackgroundColor="#fff"
           rightAlign="center"
           rightTextAlign="center"
