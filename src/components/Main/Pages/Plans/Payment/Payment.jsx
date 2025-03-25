@@ -75,8 +75,8 @@ function Payment() {
           onClose={closeModal}
           title={modalType === 'ипотека' ? 'Получите расчет ипотеки от нашего ипотечного брокера прямо сейчас' : 'Узнайте все условия беспроцентной рассрочки от застройщика прямо сейчас'}
           text={''}
-          showImages={false} // Без изображений для обеих модалок
-          logo={modalType === 'рассрочка' ? percent : null} // Логотип только для рассрочки
+          showImages={false}
+          logo={modalType === 'рассрочка' ? percent : null} 
           rightPadding="20px 40px"
           rightBackgroundColor="#fff"
           rightAlign="center"

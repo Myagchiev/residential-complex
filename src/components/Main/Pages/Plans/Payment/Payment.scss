@@ -85,13 +85,12 @@
     }
   }
 
-  // Mobile adaptations
   @media (max-width: 768px) {
     .left,
     .right,
     .down {
       width: 100%;
-      padding: 20px; // Reduced padding for mobile
+      padding: 20px;
     }
 
     .middleline {
@@ -104,35 +103,38 @@
 
     .left {
       h2 {
-        font-size: 36px; // Smaller heading for mobile
+        font-size: 36px;
       }
       p {
-        font-size: 18px; // Smaller text for mobile
+        font-size: 18px;
         line-height: 26px;
+        margin: 15px 0;
       }
     }
 
     .right {
       h3 {
-        font-size: 24px; // Smaller heading for mobile
+        font-size: 24px;
       }
       p {
-        font-size: 18px; // Smaller text for mobile
+        font-size: 18px;
         line-height: 26px;
+        margin: 15px 0;
       }
     }
 
     .down {
       h2 {
-        font-size: 36px; // Smaller heading for mobile
+        font-size: 36px;
       }
       p {
-        font-size: 18px; // Smaller text for mobile
+        font-size: 18px;
         line-height: 26px;
+        margin: 0px 0 10px 0;
       }
       
       .downdiv {
-        padding: 20px 0 20px 20px; // Adjusted padding for mobile
+        padding: 20px 0 20px 20px;
         margin-left: -20px;
       }
     }

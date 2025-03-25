@@ -1,7 +1,7 @@
 
 .container {
-  width: 1180px; // Фиксированная ширина, как в Parent
-  margin: 0 auto; // Центрирование
+  width: 1180px;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;

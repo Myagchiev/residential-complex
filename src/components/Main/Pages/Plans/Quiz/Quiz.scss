@@ -1,36 +1,30 @@
 .quiz {
   background-color: $color-brand-green;
-  padding: 20px 0;
   color: white;
   text-align: center;
   border-radius: 12px;
   position: relative;
-  min-height: 500px;
-  margin: 30px 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 494px;
 
   &-content {
     position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
   }
 
   &-start {
-    padding: 20px 15px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+
     h1 {
       font-family: 'TT Travels', sans-serif;
       font-weight: 500;
-      font-size: 28px;
-      line-height: 110%;
+      line-height: 100%;
       letter-spacing: -0.5px;
       margin: 0 0 15px 0;
     }
@@ -38,8 +32,6 @@
     p {
       font-family: 'TT Travels', sans-serif;
       font-weight: 300;
-      font-size: 16px;
-      line-height: 22px;
       letter-spacing: -0.5px;
       margin-bottom: 30px;
     }
@@ -49,24 +41,12 @@
       color: white;
       border: none;
       margin-bottom: 20px;
-      width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 
   &-decor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-
     img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
@@ -74,10 +54,8 @@
     display: flex;
     justify-content: center;
     gap: 6px;
-    margin: 15px 0 25px;
 
     &__bar {
-      width: 30px;
       height: 3px;
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 2px;
@@ -92,7 +70,6 @@
     position: absolute;
     top: -5px;
     left: 15px;
-    padding: 6px 10px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -101,7 +78,6 @@
     border-radius: 5px;
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 16px;
     cursor: pointer;
     z-index: 2;
 
@@ -111,16 +87,13 @@
   }
 
   &-question {
-    flex: 1;
     display: flex;
     flex-direction: column;
     
     h2 {
       font-family: 'TT Travels', sans-serif;
       font-weight: 500;
-      font-size: 22px;
       line-height: 120%;
-      margin-bottom: 20px;
       padding: 0 10px;
     }
   }
@@ -130,7 +103,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
   }
 
   &-card {
@@ -159,7 +131,6 @@
     p {
       font-family: 'Helvetica Neue', sans-serif;
       font-weight: 400;
-      font-size: 16px;
       text-align: center;
       padding: 10px 5px;
       color: $color-text-primary;
@@ -170,13 +141,11 @@
       position: absolute;
       top: 8px;
       right: 8px;
-      width: 20px;
-      height: 20px;
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #F0ECE6;
+      background: #f0ece6;
 
       &.checked {
         background: $color-brand-green;
@@ -200,17 +169,12 @@
     h2 {
       font-family: 'TT Travels', sans-serif;
       font-weight: 500;
-      font-size: 22px;
       line-height: 120%;
-      margin-bottom: 20px;
     }
 
     &.submitted {
       justify-content: center;
       align-items: center;
-      h2 {
-        font-size: 24px;
-      }
     }
   }
 
@@ -219,13 +183,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin: 20px 0;
   }
 
   &-messenger {
     position: relative;
-    width: calc(50% - 10px);
-    height: 80px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     display: flex;
@@ -252,8 +213,6 @@
       position: absolute;
       top: 6px;
       left: 6px;
-      width: 16px;
-      height: 16px;
       border: 2px solid white;
       border-radius: 0;
       display: flex;
@@ -267,29 +226,22 @@
     }
 
     img {
-      width: 30px;
-      height: 30px;
       margin-bottom: 5px;
     }
 
     p {
       font-family: 'Helvetica Neue', sans-serif;
       font-weight: 400;
-      font-size: 14px;
       color: white;
     }
   }
 
   &-form {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
     width: 100%;
-    margin-bottom: 20px;
-
-    button {
-      width: 100%;
-    }
 
     &-input-wrapper {
       position: relative;
@@ -302,7 +254,6 @@
       border: none;
       border-radius: 8px;
       font-family: 'Helvetica Neue', sans-serif;
-      font-size: 16px;
       background-color: #fff;
       color: $color-text-primary;
 
@@ -318,15 +269,12 @@
       width: 100%;
       color: #ff0000;
       font-family: 'Helvetica Neue', sans-serif;
-      font-size: 14px;
       text-align: center;
     }
 
     p {
       font-family: 'Helvetica Neue', sans-serif;
       font-weight: 300;
-      font-size: 12px;
-      line-height: 16px;
       opacity: 0.8;
 
       .policy {
@@ -338,52 +286,169 @@
   }
 
   .quiz-next {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto 20px;
-    position: static;
+    margin: 0 auto;
   }
 
-  /* Размеры карточек для мобильных */
-  .quiz-card {
-    &.size-large {
-      width: calc(50% - 10px);
-      height: 160px;
+  // Мобильные стили 
+  @media (max-width: 768px) {
+    margin: 30px 0;
+
+    &-content {
+      padding: 0 15px;
     }
 
-    &.size-medium {
-      width: calc(50% - 10px);
-      height: 140px;
-      padding: 10px;
+    &-start {
+      padding: 55px 0 0 0;
 
-      img {
-        height: 80px;
-        object-fit: contain;
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        width: 90%;
+        font-size: 16px;
+        align-self: center;
       }
     }
 
-    &.size-medium-centered {
-      width: calc(50% - 10px);
-      height: 140px;
-      padding: 10px;
-
+    &-decor {
+      width: 70%;
+      align-self: center;
+      margin-top: 40px;
       img {
-        height: 80px;
-        object-fit: contain;
+        width: 50px;
+        height: 50px;
       }
     }
 
-    &.size-small {
+    &-progress {
+      margin: 15px 0 25px;
+
+      &__bar {
+        width: 30px;
+      }
+    }
+
+    &-back {
+      padding: 6px 10px;
+      font-size: 16px;
+      top: 10px;
+    }
+
+    &-question {
+      h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &-options {
+      margin-bottom: 20px;
+    }
+
+    &-card {
+      p {
+        font-size: 16px;
+      }
+
+      .quiz-checkbox {
+        width: 20px;
+        height: 20px;
+      }
+
+      &.size-large {
+        width: calc(50% - 10px);
+        height: 160px;
+        padding: 2px;
+      }
+
+      &.size-medium {
+        width: calc(50% - 10px);
+        height: 140px;
+        padding: 10px;
+
+        img {
+          height: 60px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+
+      &.size-medium-centered {
+        width: calc(50% - 10px);
+        height: 140px;
+        padding: 10px;
+
+        img {
+          
+          width: auto;
+          height: 60px;
+          object-fit: contain;
+        }
+      }
+
+      &.size-small {
+        width: calc(50% - 10px);
+        height: 80px;
+      }
+    }
+
+    &-result {
+      h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      &.submitted {
+        h2 {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &-messengers {
+      margin: 20px 0;
+    }
+
+    &-messenger {
       width: calc(50% - 10px);
       height: 80px;
+
+      &__checkbox {
+        width: 16px;
+        height: 16px;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &-form {
+      margin-bottom: 20px;
+
+      &-error {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    .quiz-next {
+      margin-bottom: 20px;
     }
   }
-}
 
-@media (min-width: 768px) {
-  .quiz {
-    padding: 30px 0;
-    min-height: 600px;
+  // Десктопные стили от 769px
+  @media (min-width: 769px) {
     margin: 50px 0;
 
     &-content {
@@ -391,6 +456,8 @@
     }
 
     &-start {
+      justify-content: end;
+
       h1 {
         font-size: 48px;
         margin-bottom: 20px;
@@ -424,7 +491,7 @@
     }
 
     &-back {
-      top: -10px;
+      top: 10px;
       left: 20px;
       padding: 8px 12px;
       font-size: 20px;
@@ -453,6 +520,38 @@
         width: 25px;
         height: 25px;
       }
+
+      &.size-large {
+        width: 381px;
+        height: 224px;
+        padding: 4px 4px 0px ;
+      }
+
+      &.size-medium {
+        width: 250px;
+        height: 224px;
+        padding: 30px 0 10px 0;
+        object-fit: contain;
+
+        img {
+          width: auto;
+        }
+      }
+
+      &.size-medium-centered {
+        width: 250px;
+        height: 224px;
+        padding: 30px;
+
+        img {
+          width: auto;
+        }
+      }
+
+      &.size-small {
+        width: 250px;
+        height: 118px;
+      }
     }
 
     &-result {
@@ -470,7 +569,7 @@
 
     &-messengers {
       gap: 20px;
-      margin: 50px 0;
+      margin: 0px 0 50px 0;
     }
 
     &-messenger {
@@ -508,6 +607,10 @@
         width: 380px;
       }
 
+      &-error {
+        font-size: 14px;
+      }
+
       p {
         font-size: 14px;
         line-height: 18px;
@@ -520,39 +623,6 @@
       right: 20px;
       width: auto;
       max-width: none;
-    }
-
-    /* Размеры карточек для десктопа */
-    .quiz-card {
-      &.size-large {
-        width: 381px;
-        height: 224px;
-      }
-
-      &.size-medium {
-        width: 250px;
-        height: 224px;
-        padding: 30px;
-
-        img {
-          height: auto;
-        }
-      }
-
-      &.size-medium-centered {
-        width: 250px;
-        height: 224px;
-        padding: 30px;
-
-        img {
-          height: auto;
-        }
-      }
-
-      &.size-small {
-        width: 250px;
-        height: 118px;
-      }
     }
   }
 }

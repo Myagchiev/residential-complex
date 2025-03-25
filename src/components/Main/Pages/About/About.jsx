@@ -1,4 +1,3 @@
-import './About.scss';
 import Presentation from './Presentation/Present';
 import Clusters from './Clusters/Clusters';
 import Estetic from './Estetic/Estetic';

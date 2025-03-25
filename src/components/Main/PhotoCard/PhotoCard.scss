@@ -155,39 +155,39 @@
     }
 
     @media (max-width: 768px) {
-      width: 100%; // Занимает всю ширину
-      height: auto; // Высота подстраивается под контент
-      flex-direction: column; // Стек в колонку
-      padding: 15px; // Уменьшаем внутренние отступы
-      gap: 15px; // Уменьшаем расстояние между элементами
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      padding: 15px;
+      gap: 15px;
 
       .photo-card__image {
-        width: 100%; // Картинка на всю ширину
-        height: auto; // Сохраняем пропорции
-        max-height: 300px; // Ограничиваем высоту
+        width: 100%;
+        height: auto;
+        max-height: 300px;
       }
 
       .photo-card__text-side {
-        padding-right: 0; // Убираем правый отступ
+        padding-right: 0;
       }
 
       .photo-card__title {
-        font-size: 24px; // Уменьшаем заголовок
+        font-size: 24px;
         line-height: 28px;
       }
 
       .photo-card__description {
-        font-size: 16px; // Уменьшаем описание
+        font-size: 16px;
         line-height: 22px;
-        margin: 10px 0 20px 0; // Корректируем отступы
+        margin: 10px 0 20px 0;
       }
 
       .photo-card__link {
-        font-size: 16px; // Уменьшаем текст ссылки
+        font-size: 16px;
         line-height: 18px;
 
         svg {
-          width: 14px; // Уменьшаем стрелку
+          width: 14px;
           height: 14px;
         }
       }
@@ -228,28 +228,28 @@
   }
 
   @media (max-width: 768px) {
-    width: 100%; // Занимает всю ширину
-    height: auto; // Высота подстраивается
+    width: 100%;
+    height: auto;
 
     .photo-card__image {
-      width: 90%; // Чуть меньше полной ширины для отступов
-      height: auto; // Сохраняем пропорции
-      max-height: 200px; // Ограничиваем высоту
+      width: 90%;
+      height: auto;
+      max-height: 200px;
       margin: 5px auto 0;
     }
 
     .photo-card__content {
-      padding: 15px; // Уменьшаем отступы
+      padding: 15px;
     }
 
     .photo-card__title {
-      font-size: 20px; // Уменьшаем заголовок
+      font-size: 20px;
       line-height: 24px;
       margin-bottom: 8px;
     }
 
     .photo-card__description {
-      font-size: 14px; // Уменьшаем описание
+      font-size: 14px;
       line-height: 20px;
     }
   }

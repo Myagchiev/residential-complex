@@ -204,6 +204,7 @@ function Quiz() {
               text={`Получить варианты ${messenger ? `в ${messenger === 'whatsapp' ? 'WhatsApp' : messenger === 'telegram' ? 'Telegram' : 'Viber'}` : ''}`}
               color="black"
               onClick={handleSubmit}
+              fullWidth={true}
             />
             <p>
               Нажимая на кнопку, вы даёте согласие на обработку персональных данных и соглашаетесь<br /> с{' '}

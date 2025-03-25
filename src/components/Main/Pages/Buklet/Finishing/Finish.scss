@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 100px;
-    
 
     .maintitle {
         text-align: center;
@@ -26,5 +25,29 @@
     .cards {
         display: flex;
         gap: 20px;
+    }
+
+    // Мобильные стили 
+    @media (max-width: 768px) {
+        margin-bottom: 50px;
+
+        .maintitle {
+            p {
+                font-size: 16px;
+                line-height: 20px;
+                margin: 10px 0 40px 0;
+                width: 70%;
+                justify-self: center;
+            }
+        }
+
+        .longline {
+            display: none;
+        }
+
+        .cards {
+            flex-direction: column;
+            gap: 15px;
+        }
     }
 }

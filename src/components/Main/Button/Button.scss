@@ -25,17 +25,34 @@
   &.black {
     background-color: $color-text-primary;
     color: #ffffff;
+    width: fit-content;
+    align-self: center;
+  }
+
+  &.full-width {
+    width: 100%;
   }
 
   &:hover {
     opacity: 0.9;
   }
 
-  // Адаптация для мобильных устройств (до 768px)
+  // Адаптация для мобил до 768px
   @media (max-width: 768px) {
     padding: 10px 16px;
     font-size: 16px;
     line-height: 16px;
     border-radius: 8px;
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  // Десктопная версия от 769px
+  @media (min-width: 769px) {
+    &.full-width {
+      width: 410px;
+    }
   }
 }

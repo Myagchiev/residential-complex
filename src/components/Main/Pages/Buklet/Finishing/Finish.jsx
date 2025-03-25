@@ -14,7 +14,6 @@ function Finish() {
                 <h1>Отделка от застройщика</h1>
                 <p>Экономьте на стоимости ремонта, покупая квартиру с готовой отделкой</p>
                 <img className='longline' src={Longline} alt="line" />
-                <hr />
                 </div>
                 <div className='cards'>
                 <PhotoCard
