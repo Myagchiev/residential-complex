@@ -1,24 +1,40 @@
 .apartments {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .middleline {
+      position: absolute;
+      top: 105px;
+      left: 350px;
+      z-index: -1;
+    }
+  }
+
+  .miniline {
+    position: absolute;
+    top: 153px;
+    left: 230px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px; // Уменьшаем отступ между карточками
 
     h1 {
-      text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 10px; // Уменьшаем отступ снизу
 
       .middleline {
-        position: absolute;
-        top: 105px;
-        left: 350px;
-        z-index: -1;
+        display: none;
       }
     }
 
     .miniline {
-      position: absolute;
-      top: 153px;
-      left: 230px;
+      display: none;
     }
   }
+}

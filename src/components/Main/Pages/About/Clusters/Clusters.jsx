@@ -185,8 +185,8 @@ function Clusters() {
     { image: gslide7 },
   ];
 
-  const [currentBlueSlide, setCurrentBlueSlide] = useState(0);
-  const [currentGreenSlide, setCurrentGreenSlide] = useState(0);
+  const [currentBlueSlide, setCurrentBlueSlide] = useState(1);
+  const [currentGreenSlide, setCurrentGreenSlide] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCluster, setActiveCluster] = useState(null);
   const [isMobile, setIsMobile] = useState(false);

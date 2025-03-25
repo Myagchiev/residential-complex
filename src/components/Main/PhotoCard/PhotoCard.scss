@@ -153,6 +153,45 @@
         height: 18px;
       }
     }
+
+    @media (max-width: 768px) {
+      width: 100%; // Занимает всю ширину
+      height: auto; // Высота подстраивается под контент
+      flex-direction: column; // Стек в колонку
+      padding: 15px; // Уменьшаем внутренние отступы
+      gap: 15px; // Уменьшаем расстояние между элементами
+
+      .photo-card__image {
+        width: 100%; // Картинка на всю ширину
+        height: auto; // Сохраняем пропорции
+        max-height: 300px; // Ограничиваем высоту
+      }
+
+      .photo-card__text-side {
+        padding-right: 0; // Убираем правый отступ
+      }
+
+      .photo-card__title {
+        font-size: 24px; // Уменьшаем заголовок
+        line-height: 28px;
+      }
+
+      .photo-card__description {
+        font-size: 16px; // Уменьшаем описание
+        line-height: 22px;
+        margin: 10px 0 20px 0; // Корректируем отступы
+      }
+
+      .photo-card__link {
+        font-size: 16px; // Уменьшаем текст ссылки
+        line-height: 18px;
+
+        svg {
+          width: 14px; // Уменьшаем стрелку
+          height: 14px;
+        }
+      }
+    }
   }
 
   &--stacked {
@@ -185,6 +224,33 @@
     .photo-card__description {
       font-size: 20px;
       line-height: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; // Занимает всю ширину
+    height: auto; // Высота подстраивается
+
+    .photo-card__image {
+      width: 90%; // Чуть меньше полной ширины для отступов
+      height: auto; // Сохраняем пропорции
+      max-height: 200px; // Ограничиваем высоту
+      margin: 5px auto 0;
+    }
+
+    .photo-card__content {
+      padding: 15px; // Уменьшаем отступы
+    }
+
+    .photo-card__title {
+      font-size: 20px; // Уменьшаем заголовок
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+
+    .photo-card__description {
+      font-size: 14px; // Уменьшаем описание
+      line-height: 20px;
     }
   }
 }

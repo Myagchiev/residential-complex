@@ -35,8 +35,8 @@ function Quiz() {
   const [messenger, setMessenger] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [phone, setPhone] = useState(''); // Состояние для телефона
-  const [phoneError, setPhoneError] = useState(''); // Состояние для ошибки телефона
+  const [phone, setPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
 
   const startQuiz = () => setIsStarted(true);
   const prevStep = () => {
@@ -52,17 +52,16 @@ function Quiz() {
   };
 
   const handleSubmit = () => {
-    const cleanedPhone = phone.replace(/[^0-9+]/g, ''); // Убираем всё, кроме цифр и "+"
-    if (cleanedPhone.length === 12) { // Проверка на полный номер, например, +79991234567
+    const cleanedPhone = phone.replace(/[^0-9+]/g, '');
+    if (cleanedPhone.length === 12) {
       console.log('Answers:', answers, 'Messenger:', messenger, 'Phone:', cleanedPhone);
       setIsSubmitted(true);
       setPhoneError('');
     } else {
-      setPhoneError('Введите корректный номер телефона'); // Показываем ошибку в UI
+      setPhoneError('Введите корректный номер телефона');
     }
   };
 
-  // Сбрасываем тест через 2 секунды после отправки
   useEffect(() => {
     if (isSubmitted) {
       const timer = setTimeout(() => {
@@ -72,9 +71,9 @@ function Quiz() {
         setMessenger(null);
         setSelectedOption(null);
         setPhone('');
-        setPhoneError(''); // Сбрасываем ошибку
+        setPhoneError('');
         setIsSubmitted(false);
-      }, 2000); // 2 секунды
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [isSubmitted]);
